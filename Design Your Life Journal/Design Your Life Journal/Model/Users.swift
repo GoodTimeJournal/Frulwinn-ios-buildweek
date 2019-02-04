@@ -15,12 +15,12 @@ struct Activity: Codable {
     var timestamp: String
     var name: String //title
     var engagement: String //detail
-    var enjoymentRating: Bool = false
+    var enjoymentRating: Int
 }
 
 struct Reflection: Codable {
     var timestamp: String
-    var JournalEntry: String // journal entry title?
+    var journalEntry: String // journal entry title?
     var suprises: String //surprises worked
     var insights: String // insights did not work
     
