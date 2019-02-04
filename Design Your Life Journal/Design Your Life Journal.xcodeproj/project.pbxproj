@@ -12,6 +12,9 @@
 		481FAC51220520B9004C7337 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 481FAC4F220520B9004C7337 /* Main.storyboard */; };
 		481FAC53220520BB004C7337 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 481FAC52220520BB004C7337 /* Assets.xcassets */; };
 		481FAC56220520BB004C7337 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 481FAC54220520BB004C7337 /* LaunchScreen.storyboard */; };
+		481FAC5F2208AE7A004C7337 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481FAC5E2208AE7A004C7337 /* Model.swift */; };
+		481FAC622208AEA3004C7337 /* Color Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481FAC612208AEA3004C7337 /* Color Convenience.swift */; };
+		481FAC652208AEE9004C7337 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481FAC642208AEE9004C7337 /* Person.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		481FAC52220520BB004C7337 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		481FAC55220520BB004C7337 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		481FAC57220520BB004C7337 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		481FAC5E2208AE7A004C7337 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		481FAC612208AEA3004C7337 /* Color Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color Convenience.swift"; sourceTree = "<group>"; };
+		481FAC642208AEE9004C7337 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,13 +61,40 @@
 			isa = PBXGroup;
 			children = (
 				481FAC4B220520B9004C7337 /* AppDelegate.swift */,
-				481FAC4D220520B9004C7337 /* ViewController.swift */,
+				481FAC632208AEAB004C7337 /* Helpers */,
+				481FAC602208AE85004C7337 /* Model */,
+				481FAC5D2208AE62004C7337 /* Controllers */,
 				481FAC4F220520B9004C7337 /* Main.storyboard */,
 				481FAC52220520BB004C7337 /* Assets.xcassets */,
 				481FAC54220520BB004C7337 /* LaunchScreen.storyboard */,
 				481FAC57220520BB004C7337 /* Info.plist */,
 			);
 			path = "Design Your Life Journal";
+			sourceTree = "<group>";
+		};
+		481FAC5D2208AE62004C7337 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				481FAC4D220520B9004C7337 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		481FAC602208AE85004C7337 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				481FAC5E2208AE7A004C7337 /* Model.swift */,
+				481FAC642208AEE9004C7337 /* Person.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		481FAC632208AEAB004C7337 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				481FAC612208AEA3004C7337 /* Color Convenience.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,7 +168,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				481FAC652208AEE9004C7337 /* Person.swift in Sources */,
+				481FAC5F2208AE7A004C7337 /* Model.swift in Sources */,
 				481FAC4E220520B9004C7337 /* ViewController.swift in Sources */,
+				481FAC622208AEA3004C7337 /* Color Convenience.swift in Sources */,
 				481FAC4C220520B9004C7337 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
