@@ -1,5 +1,7 @@
 # Frulwinn-ios-buildweek
 
+trello personal board https://trello.com/b/rRcJZCN3/frulwinn
+
 Rubric
 1) Work demonstrates that all MVP features were built
 2) Communicated changes to team, performed proper git merges and pull requests to get code to the codebase
