@@ -11,17 +11,24 @@ struct Users: Codable {
     var reflection: [Reflection]
 }
 
-struct Activity: Codable {
-    var timestamp: String
+struct Activity: Codable, Equatable {
     var name: String //title
     var engagement: String //detail
+    var timestamp: Date
     var enjoymentRating: Int
+    
+    init(name: String, engagement: String, timestamp: Date = Date(), enjoymentRating: Int) {
+        (self.name, self.engagement, self.timestamp, self.enjoymentRating) = (name, engagement, timestamp, enjoymentRating)
+    }
 }
 
 struct Reflection: Codable {
-    var timestamp: String
     var journalEntry: String // journal entry title?
+    var timestamp: Date
     var suprises: String //surprises worked
     var insights: String // insights did not work
     
+    init(journalEntry: String, timestamp: Date = Date(), surprises: String, insights: String) {
+        (self.journalEntry, self.timestamp, self.suprises, self.insights) = (journalEntry, timestamp, surprises, insights)
+    }
 }
