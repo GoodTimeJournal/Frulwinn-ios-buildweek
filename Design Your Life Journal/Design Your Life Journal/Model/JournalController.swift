@@ -186,7 +186,7 @@ class JournalController {
                 return
             }
             
-            guard let index = self.reflections.index(of: reflection) else { return }
+            guard let index = self.reflections.index(at: reflection) else { return }
             self.reflections.remove(at: index)
             completion(nil)
         }
