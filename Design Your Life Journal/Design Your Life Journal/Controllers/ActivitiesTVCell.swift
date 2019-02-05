@@ -9,7 +9,4 @@ class ActivitiesTVCell: UITableViewCell {
     @IBOutlet weak var engagementsLabel: UILabel!
     @IBOutlet weak var timestampLabel: UILabel!
     
-    
-    
-
 }
