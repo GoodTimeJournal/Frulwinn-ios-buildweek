@@ -173,12 +173,13 @@ class JournalController {
     }
     
     func updateReflection(reflection: Reflection, journalEntry: String, surprises: String, insights: String, completion: @escaping (Error?) -> Void) {
-        guard let index = reflections.index(of: reflection) else { return }
-        
-        reflections[index].journalEntry = journalEntry
-        reflections[index].surprises = surprises
-        reflections[index].insights = insights
-        putReflection(reflection: reflections[index], completion: completion)
+        //NEED TO FIX
+//        guard let index = reflections.index(of: reflection) else { return }
+//
+//        reflections[index].journalEntry = journalEntry
+//        reflections[index].surprises = surprises
+//        reflections[index].insights = insights
+//        putReflection(reflection: reflections[index], completion: completion)
     }
     
     func fetchReflections(completion: @escaping (Error?) -> Void) {
@@ -222,9 +223,9 @@ class JournalController {
                 completion(error)
                 return
             }
-            
-            guard let index = self.reflections.index(at: reflection) else { return }
-            self.reflections.remove(at: index)
+            //NEED TO FIX
+//            guard let index = self.reflections.index(at: reflection) else { return }
+//            self.reflections.remove(at: index)
             completion(nil)
         }
         dataTask.resume()

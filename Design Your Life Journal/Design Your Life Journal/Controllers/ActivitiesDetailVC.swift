@@ -24,28 +24,28 @@ class ActivitiesDetailVC: UIViewController {
     @IBAction func save(_ sender: Any) {
         guard let name = nameTextField.text, !name.isEmpty,
             let engagement = engagementsView.text, !engagement.isEmpty else { return }
-        
-        if let activity = activity {
-            journalController?.updateActivity(activity: activity, name: name, engagement: engagement, enjoymentRating: enjoymentRatingControl, completion: { (error) in
-                if let error = error {
-                    NSLog("Could not update activity: \(error)")
-                    return
-                }
-                DispatchQueue.main.async {
-                    self.navigationController?.popViewController(animated: true)
-                }
-            })
-        } else {
-            journalController?.createActivity(name: name, engagement: engagement, enjoymentRating: enjoymentRatingLabe, completion: { (error) in
-                if let error = error {
-                    NSLog("Could not create activity: \(error)")
-                    return
-                }
-                DispatchQueue.main.async {
-                    self.navigationController?.popViewController(animated: true)
-                }
-            })
-        }
+        //NEED TO FIX
+//        if let activity = activity {
+//            journalController?.updateActivity(activity: activity, name: name, engagement: engagement, enjoymentRating: enjoymentRatingControl, completion: { (error) in
+//                if let error = error {
+//                    NSLog("Could not update activity: \(error)")
+//                    return
+//                }
+//                DispatchQueue.main.async {
+//                    self.navigationController?.popViewController(animated: true)
+//                }
+//            })
+//        } else {
+//            journalController?.createActivity(name: name, engagement: engagement, enjoymentRating: enjoymentRatingLabe, completion: { (error) in
+//                if let error = error {
+//                    NSLog("Could not create activity: \(error)")
+//                    return
+//                }
+//                DispatchQueue.main.async {
+//                    self.navigationController?.popViewController(animated: true)
+//                }
+//            })
+//        }
     }
     
     //MARK: - Methods

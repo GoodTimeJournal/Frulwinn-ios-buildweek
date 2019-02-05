@@ -28,7 +28,7 @@ class ReflectionsTableViewController: UITableViewController, UISearchBarDelegate
                 self.tableView.reloadData()
             }
         }
-    
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
