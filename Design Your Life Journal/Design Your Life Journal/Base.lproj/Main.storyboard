@@ -155,7 +155,7 @@
             </objects>
             <point key="canvasLocation" x="1838" y="1776"/>
         </scene>
-        <!--create activities log-->
+        <!--create activity log-->
         <scene sceneID="HeX-SV-sTP">
             <objects>
                 <viewController id="NWB-fl-LZb" customClass="ActivitiesDetailVC" customModule="Design_Your_Life_Journal" customModuleProvider="target" sceneMemberID="viewController">
@@ -194,6 +194,9 @@
                                             <segment title="2 (try it again)"/>
                                             <segment title="3 (hated it)"/>
                                         </segments>
+                                        <connections>
+                                            <action selector="enjoymentRatingControl:" destination="NWB-fl-LZb" eventType="valueChanged" id="vlb-BC-Odf"/>
+                                        </connections>
                                     </segmentedControl>
                                 </subviews>
                             </stackView>
@@ -206,7 +209,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dv8-cB-h6M"/>
                     </view>
-                    <navigationItem key="navigationItem" title="create activities log" id="JmS-hL-FiA">
+                    <navigationItem key="navigationItem" title="create activity log" id="JmS-hL-FiA">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="ExU-DY-JPb">
                             <connections>
                                 <action selector="save:" destination="NWB-fl-LZb" id="Fut-7b-lF6"/>
@@ -214,7 +217,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="engatementsView" destination="0wR-eM-KkG" id="1kS-p3-5Gx"/>
+                        <outlet property="engagementsView" destination="0wR-eM-KkG" id="x9V-Yi-Zrj"/>
                         <outlet property="enjoymentRatingControl" destination="kl8-sg-gRU" id="nI0-6Z-W1R"/>
                         <outlet property="enjoymentRatingLabel" destination="Zre-yD-y8o" id="0d4-M6-8e6"/>
                         <outlet property="nameTextField" destination="NSd-qN-5F0" id="iin-yu-GTw"/>
@@ -389,7 +392,7 @@
             </objects>
             <point key="canvasLocation" x="2544.8000000000002" y="966.56671664167925"/>
         </scene>
-        <!--create reflections log-->
+        <!--create reflection log-->
         <scene sceneID="15i-jQ-dlH">
             <objects>
                 <viewController id="MjB-I3-IFa" customClass="ReflectionsDetailVC" customModule="Design_Your_Life_Journal" customModuleProvider="target" sceneMemberID="viewController">
@@ -437,7 +440,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5ok-Ct-3vL"/>
                     </view>
-                    <navigationItem key="navigationItem" title="create reflections log" id="eHS-DU-Cw1">
+                    <navigationItem key="navigationItem" title="create reflection log" id="eHS-DU-Cw1">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="v1n-kt-4qx">
                             <connections>
                                 <action selector="save:" destination="MjB-I3-IFa" id="vQu-S1-beV"/>
