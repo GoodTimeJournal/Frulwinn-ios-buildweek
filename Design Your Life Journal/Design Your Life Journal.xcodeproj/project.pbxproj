@@ -8,20 +8,40 @@
 
 /* Begin PBXBuildFile section */
 		481FAC4C220520B9004C7337 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481FAC4B220520B9004C7337 /* AppDelegate.swift */; };
-		481FAC4E220520B9004C7337 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481FAC4D220520B9004C7337 /* ViewController.swift */; };
+		481FAC4E220520B9004C7337 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481FAC4D220520B9004C7337 /* SignUpViewController.swift */; };
 		481FAC51220520B9004C7337 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 481FAC4F220520B9004C7337 /* Main.storyboard */; };
 		481FAC53220520BB004C7337 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 481FAC52220520BB004C7337 /* Assets.xcassets */; };
 		481FAC56220520BB004C7337 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 481FAC54220520BB004C7337 /* LaunchScreen.storyboard */; };
+		481FAC622208AEA3004C7337 /* Color Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481FAC612208AEA3004C7337 /* Color Convenience.swift */; };
+		481FAC652208AEE9004C7337 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481FAC642208AEE9004C7337 /* Users.swift */; };
+		481FAC672208F06A004C7337 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481FAC662208F06A004C7337 /* AboutViewController.swift */; };
+		481FAC692208F097004C7337 /* ActivitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481FAC682208F097004C7337 /* ActivitiesTableViewController.swift */; };
+		481FAC6B2208F0AC004C7337 /* ReflectionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481FAC6A2208F0AC004C7337 /* ReflectionsTableViewController.swift */; };
+		481FAC6D2208F0D2004C7337 /* ReflectionsDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481FAC6C2208F0D2004C7337 /* ReflectionsDetailVC.swift */; };
+		481FAC6F2208F0EE004C7337 /* ActivitiesDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481FAC6E2208F0EE004C7337 /* ActivitiesDetailVC.swift */; };
+		481FAC712208F113004C7337 /* ActivitiesTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481FAC702208F113004C7337 /* ActivitiesTVCell.swift */; };
+		481FAC732208F12C004C7337 /* ReflectionsTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481FAC722208F12C004C7337 /* ReflectionsTVCell.swift */; };
+		481FAC772208FB80004C7337 /* JournalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481FAC762208FB80004C7337 /* JournalController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		481FAC48220520B9004C7337 /* Design Your Life Journal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Design Your Life Journal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		481FAC4B220520B9004C7337 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		481FAC4D220520B9004C7337 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		481FAC4D220520B9004C7337 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		481FAC50220520B9004C7337 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		481FAC52220520BB004C7337 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		481FAC55220520BB004C7337 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		481FAC57220520BB004C7337 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		481FAC612208AEA3004C7337 /* Color Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color Convenience.swift"; sourceTree = "<group>"; };
+		481FAC642208AEE9004C7337 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
+		481FAC662208F06A004C7337 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		481FAC682208F097004C7337 /* ActivitiesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesTableViewController.swift; sourceTree = "<group>"; };
+		481FAC6A2208F0AC004C7337 /* ReflectionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionsTableViewController.swift; sourceTree = "<group>"; };
+		481FAC6C2208F0D2004C7337 /* ReflectionsDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionsDetailVC.swift; sourceTree = "<group>"; };
+		481FAC6E2208F0EE004C7337 /* ActivitiesDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesDetailVC.swift; sourceTree = "<group>"; };
+		481FAC702208F113004C7337 /* ActivitiesTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesTVCell.swift; sourceTree = "<group>"; };
+		481FAC722208F12C004C7337 /* ReflectionsTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionsTVCell.swift; sourceTree = "<group>"; };
+		481FAC762208FB80004C7337 /* JournalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,13 +75,47 @@
 			isa = PBXGroup;
 			children = (
 				481FAC4B220520B9004C7337 /* AppDelegate.swift */,
-				481FAC4D220520B9004C7337 /* ViewController.swift */,
+				481FAC632208AEAB004C7337 /* Helpers */,
+				481FAC602208AE85004C7337 /* Model */,
+				481FAC5D2208AE62004C7337 /* Controllers */,
 				481FAC4F220520B9004C7337 /* Main.storyboard */,
 				481FAC52220520BB004C7337 /* Assets.xcassets */,
 				481FAC54220520BB004C7337 /* LaunchScreen.storyboard */,
 				481FAC57220520BB004C7337 /* Info.plist */,
 			);
 			path = "Design Your Life Journal";
+			sourceTree = "<group>";
+		};
+		481FAC5D2208AE62004C7337 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				481FAC4D220520B9004C7337 /* SignUpViewController.swift */,
+				481FAC662208F06A004C7337 /* AboutViewController.swift */,
+				481FAC702208F113004C7337 /* ActivitiesTVCell.swift */,
+				481FAC682208F097004C7337 /* ActivitiesTableViewController.swift */,
+				481FAC6E2208F0EE004C7337 /* ActivitiesDetailVC.swift */,
+				481FAC722208F12C004C7337 /* ReflectionsTVCell.swift */,
+				481FAC6A2208F0AC004C7337 /* ReflectionsTableViewController.swift */,
+				481FAC6C2208F0D2004C7337 /* ReflectionsDetailVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		481FAC602208AE85004C7337 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				481FAC642208AEE9004C7337 /* Users.swift */,
+				481FAC762208FB80004C7337 /* JournalController.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		481FAC632208AEAB004C7337 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				481FAC612208AEA3004C7337 /* Color Convenience.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +189,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				481FAC4E220520B9004C7337 /* ViewController.swift in Sources */,
+				481FAC692208F097004C7337 /* ActivitiesTableViewController.swift in Sources */,
+				481FAC672208F06A004C7337 /* AboutViewController.swift in Sources */,
+				481FAC732208F12C004C7337 /* ReflectionsTVCell.swift in Sources */,
+				481FAC652208AEE9004C7337 /* Users.swift in Sources */,
+				481FAC6D2208F0D2004C7337 /* ReflectionsDetailVC.swift in Sources */,
+				481FAC6B2208F0AC004C7337 /* ReflectionsTableViewController.swift in Sources */,
+				481FAC6F2208F0EE004C7337 /* ActivitiesDetailVC.swift in Sources */,
+				481FAC4E220520B9004C7337 /* SignUpViewController.swift in Sources */,
+				481FAC712208F113004C7337 /* ActivitiesTVCell.swift in Sources */,
+				481FAC622208AEA3004C7337 /* Color Convenience.swift in Sources */,
 				481FAC4C220520B9004C7337 /* AppDelegate.swift in Sources */,
+				481FAC772208FB80004C7337 /* JournalController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

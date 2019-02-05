@@ -2,13 +2,14 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class AboutViewController: UIViewController {
+    
+    //MARK: - Outlets
+    @IBOutlet weak var aboutLabel: UILabel!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+
     }
-
-
 }
-
