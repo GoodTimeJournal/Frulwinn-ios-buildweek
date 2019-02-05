@@ -13,13 +13,14 @@ struct Users: Codable {
 
 struct Activity: Codable, Equatable {
     var name: String //title
-    var engagement: String //detail
+    var engagement: Int
+    var enjoyment: Int
+    var energy: Int
     let timestamp: Date
-    var enjoymentRating: Int
     let identifier: String
     
-    init(name: String, engagement: String, timestamp: Date = Date(), enjoymentRating: Int, identifier: String = UUID().uuidString) {
-        (self.name, self.engagement, self.timestamp, self.enjoymentRating, self.identifier) = (name, engagement, timestamp, enjoymentRating, identifier)
+    init(name: String, engagement: Int, enjoyment: Int, energy: Int, timestamp: Date = Date(), identifier: String = UUID().uuidString) {
+        (self.name, self.engagement, self.enjoyment, self.energy, self.timestamp, self.identifier) = (name, engagement, enjoyment, energy, timestamp, identifier)
     }
 }
 

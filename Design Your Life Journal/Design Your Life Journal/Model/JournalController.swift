@@ -79,16 +79,17 @@ class JournalController {
         dataTask.resume()
     }
     
-    func createActivity(name: String, engagement: String, enjoymentRating: Int, completion: @escaping (Error?) -> Void) {
-        let activity = Activity(name: name, engagement: engagement, enjoymentRating: enjoymentRating)
+    func createActivity(name: String, engagement: Int, enjoyment: Int, energy: Int, completion: @escaping (Error?) -> Void) {
+        let activity = Activity(name: name, engagement: engagement, enjoyment: enjoyment, energy: energy)
         putActivity(activity: activity, completion: completion)
     }
     
-    func updateActivity(activity: Activity, name: String, engagement: String, enjoymentRating: Int, completion: @escaping (Error?) -> Void) {
+    func updateActivity(activity: Activity, name: String, engagement: Int, enjoyment: Int, energy: Int, completion: @escaping (Error?) -> Void) {
         guard let index = activities.index(of: activity) else { return }
         activities[index].name = name
         activities[index].engagement = engagement
-        activities[index].enjoymentRating = enjoymentRating
+        activities[index].enjoyment = enjoyment
+        activities[index].energy = energy
         putActivity(activity: activities[index], completion: completion)
     }
     
@@ -174,12 +175,12 @@ class JournalController {
     
     func updateReflection(reflection: Reflection, journalEntry: String, surprises: String, insights: String, completion: @escaping (Error?) -> Void) {
         //NEED TO FIX
-//        guard let index = reflections.index(of: reflection) else { return }
-//
-//        reflections[index].journalEntry = journalEntry
-//        reflections[index].surprises = surprises
-//        reflections[index].insights = insights
-//        putReflection(reflection: reflections[index], completion: completion)
+        guard let index = reflections.append(contentsOf: reflections) else { return }
+
+        reflections[index].journalEntry = journalEntry
+        reflections[index].surprises = surprises
+        reflections[index].insights = insights
+        putReflection(reflection: reflections[index], completion: completion)
     }
     
     func fetchReflections(completion: @escaping (Error?) -> Void) {
@@ -224,8 +225,8 @@ class JournalController {
                 return
             }
             //NEED TO FIX
-//            guard let index = self.reflections.index(at: reflection) else { return }
-//            self.reflections.remove(at: index)
+            guard let index = self.reflections.remove(at: reflections) else { return }
+            self.reflections.remove(at: index)
             completion(nil)
         }
         dataTask.resume()
