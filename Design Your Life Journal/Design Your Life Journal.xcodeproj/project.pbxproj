@@ -22,6 +22,8 @@
 		481FAC712208F113004C7337 /* ActivitiesTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481FAC702208F113004C7337 /* ActivitiesTVCell.swift */; };
 		481FAC732208F12C004C7337 /* ReflectionsTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481FAC722208F12C004C7337 /* ReflectionsTVCell.swift */; };
 		481FAC772208FB80004C7337 /* JournalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481FAC762208FB80004C7337 /* JournalController.swift */; };
+		481FAC79220A2D46004C7337 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481FAC78220A2D45004C7337 /* RegisterViewController.swift */; };
+		481FAC7B220A4EDE004C7337 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481FAC7A220A4EDE004C7337 /* UserController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		481FAC702208F113004C7337 /* ActivitiesTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesTVCell.swift; sourceTree = "<group>"; };
 		481FAC722208F12C004C7337 /* ReflectionsTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionsTVCell.swift; sourceTree = "<group>"; };
 		481FAC762208FB80004C7337 /* JournalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalController.swift; sourceTree = "<group>"; };
+		481FAC78220A2D45004C7337 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		481FAC7A220A4EDE004C7337 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				481FAC4D220520B9004C7337 /* SignUpViewController.swift */,
+				481FAC78220A2D45004C7337 /* RegisterViewController.swift */,
 				481FAC662208F06A004C7337 /* AboutViewController.swift */,
 				481FAC702208F113004C7337 /* ActivitiesTVCell.swift */,
 				481FAC682208F097004C7337 /* ActivitiesTableViewController.swift */,
@@ -105,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				481FAC642208AEE9004C7337 /* Users.swift */,
+				481FAC7A220A4EDE004C7337 /* UserController.swift */,
 				481FAC762208FB80004C7337 /* JournalController.swift */,
 			);
 			path = Model;
@@ -193,12 +199,14 @@
 				481FAC672208F06A004C7337 /* AboutViewController.swift in Sources */,
 				481FAC732208F12C004C7337 /* ReflectionsTVCell.swift in Sources */,
 				481FAC652208AEE9004C7337 /* Users.swift in Sources */,
+				481FAC7B220A4EDE004C7337 /* UserController.swift in Sources */,
 				481FAC6D2208F0D2004C7337 /* ReflectionsDetailVC.swift in Sources */,
 				481FAC6B2208F0AC004C7337 /* ReflectionsTableViewController.swift in Sources */,
 				481FAC6F2208F0EE004C7337 /* ActivitiesDetailVC.swift in Sources */,
 				481FAC4E220520B9004C7337 /* SignUpViewController.swift in Sources */,
 				481FAC712208F113004C7337 /* ActivitiesTVCell.swift in Sources */,
 				481FAC622208AEA3004C7337 /* Color Convenience.swift in Sources */,
+				481FAC79220A2D46004C7337 /* RegisterViewController.swift in Sources */,
 				481FAC4C220520B9004C7337 /* AppDelegate.swift in Sources */,
 				481FAC772208FB80004C7337 /* JournalController.swift in Sources */,
 			);

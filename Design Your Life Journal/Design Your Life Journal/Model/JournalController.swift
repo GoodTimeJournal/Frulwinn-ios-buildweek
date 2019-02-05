@@ -79,17 +79,18 @@ class JournalController {
         dataTask.resume()
     }
     
-    func createActivity(name: String, engagement: Int, enjoyment: Int, energy: Int, completion: @escaping (Error?) -> Void) {
-        let activity = Activity(name: name, engagement: engagement, enjoyment: enjoyment, energy: energy)
+    func createActivity(name: String, engagement: Int, enjoymentLevel: Int, energyLevel: Int, completion: @escaping (Error?) -> Void) {
+        let activity = Activity(name: name, engagement: engagement, enjoymentLevel: enjoymentLevel, energyLevel: energyLevel)
         putActivity(activity: activity, completion: completion)
     }
     
-    func updateActivity(activity: Activity, name: String, engagement: Int, enjoyment: Int, energy: Int, completion: @escaping (Error?) -> Void) {
+    func updateActivity(activity: Activity, name: String, engagement: Int, enjoymentLevel: Int, energyLevel: Int, completion: @escaping (Error?) -> Void) {
         guard let index = activities.index(of: activity) else { return }
+        
         activities[index].name = name
         activities[index].engagement = engagement
-        activities[index].enjoyment = enjoyment
-        activities[index].energy = energy
+        activities[index].enjoymentLevel = enjoymentLevel
+        activities[index].energyLevel = energyLevel
         putActivity(activity: activities[index], completion: completion)
     }
     
@@ -124,10 +125,21 @@ class JournalController {
         let url = baseURL.appendingPathComponent(activity.identifier)
             .appendingPathExtension("json")
         
-        var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = httpMethod.delete.rawValue
+        var request = URLRequest(url: url)
+        request.httpMethod = httpMethod.delete.rawValue
         
-        let dataTask = URLSession.shared.dataTask(with: urlRequest) { (_, _, error) in
+        do {
+            let encoder = JSONEncoder()
+            let encodedActivity = try encoder.encode(activity)
+            request.httpBody = encodedActivity
+        } catch {
+            NSLog("error encoding activity: \(error)")
+            completion(error)
+            return
+        }
+        
+        
+        let dataTask = URLSession.shared.dataTask(with: request) { (_, _, error) in
             if let error = error {
                 NSLog("error trying to delete activity data: \(error)")
                 completion(error)
@@ -174,11 +186,11 @@ class JournalController {
     }
     
     func updateReflection(reflection: Reflection, journalEntry: String, surprises: String, insights: String, completion: @escaping (Error?) -> Void) {
-        //NEED TO FIX
-        guard let index = reflections.append(contentsOf: reflections) else { return }
+
+        guard let index = reflections.index(of: reflection) else { return }
 
         reflections[index].journalEntry = journalEntry
-        reflections[index].surprises = surprises
+        reflections[index].suprises = surprises
         reflections[index].insights = insights
         putReflection(reflection: reflections[index], completion: completion)
     }
@@ -199,6 +211,7 @@ class JournalController {
                 do {
                     let reflectionsDictionary = try jsonDecoder.decode([String: Reflection].self, from: data)
                     let reflections = reflectionsDictionary.map { $0.value }
+                    print("reflections", reflections)
                     self.reflections = reflections.sorted(by: { $0.timestamp > $1.timestamp })
                     completion(nil)
                 } catch {
@@ -215,17 +228,27 @@ class JournalController {
         let url = baseURL.appendingPathComponent(reflection.identifier)
             .appendingPathExtension("json")
         
-        var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = httpMethod.delete.rawValue
+        var request = URLRequest(url: url)
+        request.httpMethod = httpMethod.delete.rawValue
         
-        let dataTask = URLSession.shared.dataTask(with: urlRequest) { (_, _, error) in
+        do {
+            let encoder = JSONEncoder()
+            let encodedActivity = try encoder.encode(reflection)
+            request.httpBody = encodedActivity
+        } catch {
+            NSLog("error encoding activity: \(error)")
+            completion(error)
+            return
+        }
+        
+        let dataTask = URLSession.shared.dataTask(with: request) { (_, _, error) in
             if let error = error {
                 NSLog("error trying to delete reflection data: \(error)")
                 completion(error)
                 return
             }
             //NEED TO FIX
-            guard let index = self.reflections.remove(at: reflections) else { return }
+            guard let index = self.reflections.index(of: reflection) else { return }
             self.reflections.remove(at: index)
             completion(nil)
         }

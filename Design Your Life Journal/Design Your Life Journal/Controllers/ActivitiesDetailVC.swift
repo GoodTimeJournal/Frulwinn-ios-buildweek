@@ -37,30 +37,35 @@ class ActivitiesDetailVC: UIViewController {
     
     //save
     @IBAction func save(_ sender: Any) {
-//        guard let name = nameTextField.text, !name.isEmpty,
-//            let engagement = engagementsView.text, !engagement.isEmpty else { return }
-//        //NEED TO FIX
-//        if let activity = activity {
-//            journalController?.updateActivity(activity: activity, name: name, engagement: engagement, enjoymentRating: enjoymentRatingControl, completion: { (error) in
-//                if let error = error {
-//                    NSLog("Could not update activity: \(error)")
-//                    return
-//                }
-//                DispatchQueue.main.async {
-//                    self.navigationController?.popViewController(animated: true)
-//                }
-//            })
-//        } else {
-//            journalController?.createActivity(name: name, engagement: engagement, enjoymentRating: enjoymentRatingLabe, completion: { (error) in
-//                if let error = error {
-//                    NSLog("Could not create activity: \(error)")
-//                    return
-//                }
-//                DispatchQueue.main.async {
-//                    self.navigationController?.popViewController(animated: true)
-//                }
-//            })
-//        }
+        guard let name = activityTextField.text, !name.isEmpty,
+            let engagement = engagementTextField.text, !engagement.isEmpty,
+            let engagementInt = Int(engagement),
+            let enjoymentLevel = enjoymentTextField.text, !enjoymentLevel.isEmpty,
+            let enjoymentLevelInt = Int(enjoymentLevel),
+            let energyLevel = energyTextField.text, !energyLevel.isEmpty,
+            let energyLevelInt = Int(energyLevel) else { return }
+
+        if let activity = activity {
+            journalController?.updateActivity(activity: activity, name: name, engagement: engagementInt, enjoymentLevel: enjoymentLevelInt, energyLevel: energyLevelInt, completion: { (error) in
+                if let error = error {
+                    NSLog("Could not update activity: \(error)")
+                    return
+                }
+                DispatchQueue.main.async {
+                    self.navigationController?.popViewController(animated: true)
+                }
+            })
+        } else {
+            journalController?.createActivity(name: name, engagement: engagementInt, enjoymentLevel: enjoymentLevelInt, energyLevel: energyLevelInt, completion: { (error) in
+                if let error = error {
+                    NSLog("Could not create activity: \(error)")
+                    return
+                }
+                DispatchQueue.main.async {
+                    self.navigationController?.popViewController(animated: true)
+                }
+            })
+        }
     }
     
     //MARK: - Methods
@@ -76,9 +81,10 @@ class ActivitiesDetailVC: UIViewController {
                 return
             }
             title = activity.name
-//            nameTextField.text = activity.name
-//            engagementsView.text = activity.engagement
-            //enjoymentRatingControl.text = activity.enjoymentRating
+            activityTextField.text = activity.name
+            engagementTextField.text = String(activity.engagement)
+            enjoymentTextField.text = String(activity.enjoymentLevel)
+            energyTextField.text = String(activity.energyLevel)
         }
     }
 }

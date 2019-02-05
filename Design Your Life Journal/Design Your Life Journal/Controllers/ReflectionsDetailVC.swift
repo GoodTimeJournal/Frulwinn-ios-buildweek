@@ -20,7 +20,7 @@ class ReflectionsDetailVC: UIViewController {
         guard let journalEntry = journalEntryTextField.text, !journalEntry.isEmpty,
         let surprises = surprisesTextView.text, !surprises.isEmpty,
             let insights = insightsTextView.text, !insights.isEmpty else { return }
-        
+        print("hello")
         if let reflection = reflection {
             journalController?.updateReflection(reflection: reflection, journalEntry: journalEntry, surprises: surprises, insights: insights, completion: { (error) in
                 if let error = error {

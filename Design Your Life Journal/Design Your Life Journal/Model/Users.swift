@@ -14,21 +14,21 @@ struct Users: Codable {
 struct Activity: Codable, Equatable {
     var name: String //title
     var engagement: Int
-    var enjoyment: Int
-    var energy: Int
+    var enjoymentLevel: Int
+    var energyLevel: Int
     let timestamp: Date
     let identifier: String
     
-    init(name: String, engagement: Int, enjoyment: Int, energy: Int, timestamp: Date = Date(), identifier: String = UUID().uuidString) {
-        (self.name, self.engagement, self.enjoyment, self.energy, self.timestamp, self.identifier) = (name, engagement, enjoyment, energy, timestamp, identifier)
+    init(name: String, engagement: Int, enjoymentLevel: Int, energyLevel: Int, timestamp: Date = Date(), identifier: String = UUID().uuidString) {
+        (self.name, self.engagement, self.enjoymentLevel, self.energyLevel, self.timestamp, self.identifier) = (name, engagement, enjoymentLevel, energyLevel, timestamp, identifier)
     }
 }
 
-struct Reflection: Codable {
-    var journalEntry: String // journal entry title?
+struct Reflection: Codable, Equatable {
+    var journalEntry: String
     let timestamp: Date
-    var suprises: String //surprises worked
-    var insights: String // insights did not work
+    var suprises: String
+    var insights: String
     let identifier: String
     
     init(journalEntry: String, timestamp: Date = Date(), surprises: String, insights: String, identifier: String = UUID().uuidString) {
