@@ -143,7 +143,6 @@
                     <navigationItem key="navigationItem" title="activities" id="sSC-pC-f7N">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="QN0-th-XzV">
                             <connections>
-                                <action selector="add:" destination="6kR-Vb-SqL" id="tIJ-9v-lOq"/>
                                 <segue destination="NWB-fl-LZb" kind="show" identifier="activitiesAddSegue" id="lLn-qk-g6o"/>
                             </connections>
                         </barButtonItem>

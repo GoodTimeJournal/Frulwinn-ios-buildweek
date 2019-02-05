@@ -4,6 +4,14 @@ import UIKit
 
 class ActivitiesDetailVC: UIViewController {
     
+    //MARK: - Properties
+    var journalController: JournalController?
+    var activity: Activity? {
+        didSet {
+            updateViews()
+        }
+    }
+    
     //MARK: - Outlets
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var engatementsView: UITextView!
@@ -17,6 +25,10 @@ class ActivitiesDetailVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    func updateViews() {
+        
     }
     
 
