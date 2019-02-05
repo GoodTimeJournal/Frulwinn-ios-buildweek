@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ReflectionsTableViewController: UITableViewController {
+class ReflectionsTableViewController: UITableViewController, UISearchBarDelegate {
     
     //MARK: - Properties
     let journalController = JournalController()
@@ -18,6 +18,16 @@ class ReflectionsTableViewController: UITableViewController {
     
     @IBAction func add(_ sender: Any) {
     }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchTerm = searchBar.text, !searchTerm.isEmpty else { return }
+        
+        journalController.searchReflection(searchTerm: searchTerm) { (_) in
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

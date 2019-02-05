@@ -16,6 +16,43 @@ class JournalController {
     private(set) var reflections: [Reflection] = []
     
     //for activity
+    func searchActivity(searchTerm: String, completion: @escaping (Error?) -> Void) {
+        var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
+        let searchQueryItem = URLQueryItem(name: "name", value: searchTerm)
+        urlComponents?.queryItems = [searchQueryItem]
+        
+        guard let requestURL = urlComponents?.url else {
+            NSLog("wasn't able to construct URL")
+            completion(NSError())
+            return
+        }
+        let dataTask = URLSession.shared.dataTask(with: requestURL) { (data, _, error) in
+            if let error = error {
+                NSLog("error fetching search results for activities : \(error)")
+                completion(error)
+                return
+            }
+            
+            guard let data = data else {
+                NSLog("results didn't return valid data")
+                completion(NSError())
+                return
+            }
+            
+            do {
+                let jsonDecoder = JSONDecoder()
+                let activities = try jsonDecoder.decode([Activity].self, from: data)
+                self.activities = activities
+                completion(nil)
+            } catch {
+                NSLog("error decoding JSON: \(error)")
+                completion(error)
+                return
+            }
+        }
+        dataTask.resume()
+    }
+    
     func putActivity(activity: Activity, completion: @escaping (Error?) -> Void) {
         let url = baseURL.appendingPathComponent(activity.identifier).appendingPathExtension("json")
         
@@ -189,6 +226,43 @@ class JournalController {
             guard let index = self.reflections.index(at: reflection) else { return }
             self.reflections.remove(at: index)
             completion(nil)
+        }
+        dataTask.resume()
+    }
+    
+    func searchReflection(searchTerm: String, completion: @escaping (Error?) -> Void) {
+        var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
+        let searchQueryItem = URLQueryItem(name: "journalEntry", value: searchTerm)
+        urlComponents?.queryItems = [searchQueryItem]
+        
+        guard let requestURL = urlComponents?.url else {
+            NSLog("wasn't able to construct URL")
+            completion(NSError())
+            return
+        }
+        let dataTask = URLSession.shared.dataTask(with: requestURL) { (data, _, error) in
+            if let error = error {
+                NSLog("error fetching search results for reflections : \(error)")
+                completion(error)
+                return
+            }
+            
+            guard let data = data else {
+                NSLog("results didn't return valid data")
+                completion(NSError())
+                return
+            }
+            
+            do {
+                let jsonDecoder = JSONDecoder()
+                let reflections = try jsonDecoder.decode([Reflection].self, from: data)
+                self.reflections = reflections
+                completion(nil)
+            } catch {
+                NSLog("error decoding JSON: \(error)")
+                completion(error)
+                return
+            }
         }
         dataTask.resume()
     }

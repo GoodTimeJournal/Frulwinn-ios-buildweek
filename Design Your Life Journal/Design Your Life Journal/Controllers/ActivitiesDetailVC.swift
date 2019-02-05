@@ -2,8 +2,6 @@
 
 import UIKit
 
-
-
 class ActivitiesDetailVC: UIViewController {
     
     //MARK: - Properties
@@ -20,7 +18,7 @@ class ActivitiesDetailVC: UIViewController {
     @IBOutlet weak var enjoymentRatingLabel: UILabel!
     @IBOutlet weak var enjoymentRatingControl: UISegmentedControl!
     @IBAction func enjoymentRatingControl(_ sender: UISegmentedControl) {
-        
+   
     }
     
     @IBAction func save(_ sender: Any) {

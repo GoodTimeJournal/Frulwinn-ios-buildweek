@@ -190,9 +190,9 @@
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="kl8-sg-gRU">
                                         <rect key="frame" x="0.0" y="392.5" width="315" height="29"/>
                                         <segments>
-                                            <segment title="1 (loved it)"/>
-                                            <segment title="2 (try it again)"/>
-                                            <segment title="3 (hated it)"/>
+                                            <segment title="1 (love)"/>
+                                            <segment title="2 (meh)"/>
+                                            <segment title="3 (hate)"/>
                                         </segments>
                                         <connections>
                                             <action selector="enjoymentRatingControl:" destination="NWB-fl-LZb" eventType="valueChanged" id="vlb-BC-Odf"/>
