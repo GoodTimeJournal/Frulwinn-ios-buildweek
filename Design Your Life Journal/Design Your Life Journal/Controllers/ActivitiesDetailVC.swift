@@ -13,18 +13,12 @@ class ActivitiesDetailVC: UIViewController {
     }
     
     //MARK: - Outlets
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var engagementsView: UITextView!
-    @IBOutlet weak var enjoymentRatingLabel: UILabel!
-    @IBOutlet weak var enjoymentRatingControl: UISegmentedControl!
-    @IBAction func enjoymentRatingControl(_ sender: UISegmentedControl) {
-   
-    }
+
     
     @IBAction func save(_ sender: Any) {
-        guard let name = nameTextField.text, !name.isEmpty,
-            let engagement = engagementsView.text, !engagement.isEmpty else { return }
-        //NEED TO FIX
+//        guard let name = nameTextField.text, !name.isEmpty,
+//            let engagement = engagementsView.text, !engagement.isEmpty else { return }
+//        //NEED TO FIX
 //        if let activity = activity {
 //            journalController?.updateActivity(activity: activity, name: name, engagement: engagement, enjoymentRating: enjoymentRatingControl, completion: { (error) in
 //                if let error = error {
@@ -61,8 +55,8 @@ class ActivitiesDetailVC: UIViewController {
                 return
             }
             title = activity.name
-            nameTextField.text = activity.name
-            engagementsView.text = activity.engagement
+//            nameTextField.text = activity.name
+//            engagementsView.text = activity.engagement
             //enjoymentRatingControl.text = activity.enjoymentRating
         }
     }
