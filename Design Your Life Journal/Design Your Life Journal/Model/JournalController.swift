@@ -17,8 +17,10 @@ class JournalController {
     private(set) var reflections: [Reflection] = []
     
     //for activity
-        func putActivity(activity: Activity, completion: @escaping (Error?) -> Void) {
-        let url = baseURL.appendingPathComponent(activity.id).appendingPathExtension("json")
+    func putActivity(activity: Activity, completion: @escaping (Error?) -> Void) {
+        let authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMTQkSk8vbHB4RjZKa1MwUVhleFNwMmZHdS9Pc1lvU01URU1TZnF4YURac2VVclFyUkdiR2FiVlciLCJpYXQiOjE1NDk0MjAwODcsImV4cCI6MTU0OTc4MDA4N30.9Ke9kzZ9kCZA97ds-AQZuEm-f_N38rIODkzqA9tkGYk" //provided by Backend
+
+        let url = baseURL.appendingPathComponent(activity.id).appendingPathExtension("activity")
         
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = httpMethod.put.rawValue
@@ -44,11 +46,15 @@ class JournalController {
     }
     
     func createActivity(name: String, engagement: Int, enjoymentLevel: Int, energyLevel: Int, completion: @escaping (Error?) -> Void) {
+        let authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMTQkSk8vbHB4RjZKa1MwUVhleFNwMmZHdS9Pc1lvU01URU1TZnF4YURac2VVclFyUkdiR2FiVlciLCJpYXQiOjE1NDk0MjAwODcsImV4cCI6MTU0OTc4MDA4N30.9Ke9kzZ9kCZA97ds-AQZuEm-f_N38rIODkzqA9tkGYk" //provided by Backend
+
         let activity = Activity(name: name, engagement: engagement, enjoymentLevel: enjoymentLevel, energyLevel: energyLevel)
         putActivity(activity: activity, completion: completion)
     }
     
     func updateActivity(activity: Activity, name: String, engagement: Int, enjoymentLevel: Int, energyLevel: Int, completion: @escaping (Error?) -> Void) {
+        let authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMTQkSk8vbHB4RjZKa1MwUVhleFNwMmZHdS9Pc1lvU01URU1TZnF4YURac2VVclFyUkdiR2FiVlciLCJpYXQiOjE1NDk0MjAwODcsImV4cCI6MTU0OTc4MDA4N30.9Ke9kzZ9kCZA97ds-AQZuEm-f_N38rIODkzqA9tkGYk" //provided by Backend
+
         guard let index = activities.index(of: activity) else { return }
         
         activities[index].name = name
@@ -59,7 +65,13 @@ class JournalController {
     }
     
     func fetchActivities(completion: @escaping (Error?) -> Void) {
-        let url = baseURL.appendingPathExtension("json")
+        let authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMTQkSk8vbHB4RjZKa1MwUVhleFNwMmZHdS9Pc1lvU01URU1TZnF4YURac2VVclFyUkdiR2FiVlciLCJpYXQiOjE1NDk0MjAwODcsImV4cCI6MTU0OTc4MDA4N30.9Ke9kzZ9kCZA97ds-AQZuEm-f_N38rIODkzqA9tkGYk" //provided by Backend
+
+        let url = baseURL.appendingPathExtension("activity")
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.addValue(authToken, forHTTPHeaderField: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMTQkSk8vbHB4RjZKa1MwUVhleFNwMmZHdS9Pc1lvU01URU1TZnF4YURac2VVclFyUkdiR2FiVlciLCJpYXQiOjE1NDk0MjAwODcsImV4cCI6MTU0OTc4MDA4N30.9Ke9kzZ9kCZA97ds-AQZuEm-f_N38rIODkzqA9tkGYk") // authToken here will be the authorization
         
         let dataTask = URLSession.shared.dataTask(with: url) { (data, _, error) in
             if let error = error {
@@ -86,11 +98,14 @@ class JournalController {
         dataTask.resume()
     }
     func deleteActivity(activity: Activity, completion: @escaping (Error?) -> Void) {
+        let authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMTQkSk8vbHB4RjZKa1MwUVhleFNwMmZHdS9Pc1lvU01URU1TZnF4YURac2VVclFyUkdiR2FiVlciLCJpYXQiOjE1NDk0MjAwODcsImV4cCI6MTU0OTc4MDA4N30.9Ke9kzZ9kCZA97ds-AQZuEm-f_N38rIODkzqA9tkGYk" //provided by Backend
+
         let url = baseURL.appendingPathComponent(activity.id)
-            .appendingPathExtension("json")
+            .appendingPathExtension("activity")
         
         var request = URLRequest(url: url)
         request.httpMethod = httpMethod.delete.rawValue
+        request.addValue(authToken, forHTTPHeaderField: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMTQkSk8vbHB4RjZKa1MwUVhleFNwMmZHdS9Pc1lvU01URU1TZnF4YURac2VVclFyUkdiR2FiVlciLCJpYXQiOjE1NDk0MjAwODcsImV4cCI6MTU0OTc4MDA4N30.9Ke9kzZ9kCZA97ds-AQZuEm-f_N38rIODkzqA9tkGYk") // authToken here will be the authorization
         
         do {
             let encoder = JSONEncoder()
@@ -119,6 +134,8 @@ class JournalController {
     
     //for reflection
     func putReflection(reflection: Reflection, completion: @escaping (Error?) -> Void) {
+        let authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMTQkSk8vbHB4RjZKa1MwUVhleFNwMmZHdS9Pc1lvU01URU1TZnF4YURac2VVclFyUkdiR2FiVlciLCJpYXQiOjE1NDk0MjAwODcsImV4cCI6MTU0OTc4MDA4N30.9Ke9kzZ9kCZA97ds-AQZuEm-f_N38rIODkzqA9tkGYk" //provided by Backend
+
         let url = baseURL.appendingPathComponent(reflection.id).appendingPathExtension("json")
         
         var urlRequest = URLRequest(url: url)
@@ -145,11 +162,14 @@ class JournalController {
     }
     
     func createReflection(journalEntry: String, surprises: String, insights: String, completion: @escaping (Error?) -> Void) {
+        let authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMTQkSk8vbHB4RjZKa1MwUVhleFNwMmZHdS9Pc1lvU01URU1TZnF4YURac2VVclFyUkdiR2FiVlciLCJpYXQiOjE1NDk0MjAwODcsImV4cCI6MTU0OTc4MDA4N30.9Ke9kzZ9kCZA97ds-AQZuEm-f_N38rIODkzqA9tkGYk" //provided by Backend
+
         let reflection = Reflection(journalEntry: journalEntry, surprises: surprises, insights: insights)
         putReflection(reflection: reflection, completion: completion)
     }
     
     func updateReflection(reflection: Reflection, journalEntry: String, surprises: String, insights: String, completion: @escaping (Error?) -> Void) {
+        let authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMTQkSk8vbHB4RjZKa1MwUVhleFNwMmZHdS9Pc1lvU01URU1TZnF4YURac2VVclFyUkdiR2FiVlciLCJpYXQiOjE1NDk0MjAwODcsImV4cCI6MTU0OTc4MDA4N30.9Ke9kzZ9kCZA97ds-AQZuEm-f_N38rIODkzqA9tkGYk" //provided by Backend
 
         guard let index = reflections.index(of: reflection) else { return }
 
@@ -160,12 +180,12 @@ class JournalController {
     }
     
     func fetchReflections(completion: @escaping (Error?) -> Void) {
-        let authToken = "155" //provided by Backend
+        let authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMTQkSk8vbHB4RjZKa1MwUVhleFNwMmZHdS9Pc1lvU01URU1TZnF4YURac2VVclFyUkdiR2FiVlciLCJpYXQiOjE1NDk0MjAwODcsImV4cCI6MTU0OTc4MDA4N30.9Ke9kzZ9kCZA97ds-AQZuEm-f_N38rIODkzqA9tkGYk" //provided by Backend
         let url = baseURL.appendingPathExtension("reflections")
         
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
-        request.addValue(authToken, forHTTPHeaderField: "Authorization") //authToken here will be the authorization token provided by Travis
+        request.addValue(authToken, forHTTPHeaderField: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMTQkSk8vbHB4RjZKa1MwUVhleFNwMmZHdS9Pc1lvU01URU1TZnF4YURac2VVclFyUkdiR2FiVlciLCJpYXQiOjE1NDk0MjAwODcsImV4cCI6MTU0OTc4MDA4N30.9Ke9kzZ9kCZA97ds-AQZuEm-f_N38rIODkzqA9tkGYk") //authToken here will be the authorization token provided by Travis
         
         let dataTask = URLSession.shared.dataTask(with: url) { (data, _, error) in
             if let error = error {
@@ -183,7 +203,7 @@ class JournalController {
                     let jsonDecoder = JSONDecoder()
                     let reflections = try jsonDecoder.decode(Reflection.self, from: data)
                     //let reflection = reflections.map { $0.value }
-                    //print("reflections", reflections)
+                    print("reflections", reflections)
                     //self.reflections = reflections.sorted(by: { $0.timestamp > $1.timestamp })
                     //completion(nil)
                     self.reflections = [reflections]
@@ -197,11 +217,14 @@ class JournalController {
     }
     
     func deleteReflection(reflection: Reflection, completion: @escaping (Error?) -> Void) {
+        let authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMTQkSk8vbHB4RjZKa1MwUVhleFNwMmZHdS9Pc1lvU01URU1TZnF4YURac2VVclFyUkdiR2FiVlciLCJpYXQiOjE1NDk0MjAwODcsImV4cCI6MTU0OTc4MDA4N30.9Ke9kzZ9kCZA97ds-AQZuEm-f_N38rIODkzqA9tkGYk" //provided by Backend
+
         let url = baseURL.appendingPathComponent(reflection.id)
-            .appendingPathExtension("json")
+            .appendingPathExtension("reflection")
         
         var request = URLRequest(url: url)
         request.httpMethod = httpMethod.delete.rawValue
+        request.addValue(authToken, forHTTPHeaderField: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMTQkSk8vbHB4RjZKa1MwUVhleFNwMmZHdS9Pc1lvU01URU1TZnF4YURac2VVclFyUkdiR2FiVlciLCJpYXQiOjE1NDk0MjAwODcsImV4cCI6MTU0OTc4MDA4N30.9Ke9kzZ9kCZA97ds-AQZuEm-f_N38rIODkzqA9tkGYk") // authToken here will be the authorization
         
         do {
             let encoder = JSONEncoder()

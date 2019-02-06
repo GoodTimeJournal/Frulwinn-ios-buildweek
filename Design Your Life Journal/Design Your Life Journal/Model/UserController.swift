@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+class UserController {
+    
+    //MARK: - Properties
+
+}
