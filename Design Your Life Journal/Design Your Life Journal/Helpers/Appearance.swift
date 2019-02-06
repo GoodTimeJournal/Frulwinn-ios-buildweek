@@ -15,6 +15,17 @@ enum Appearance {
     }
     
     static func setAppearance() {
+        //navigationbar
+        UINavigationBar.appearance().barTintColor = .lightGray
+        UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.gray, NSAttributedString.Key.font: UIFont(name: "Montserrat-Regular", size: 30)!]
+        
+        //bar button item
+        UIBarButtonItem.appearance().tintColor = .gray
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font : UIFont(name: "Montserrat-Regular", size: 14)!, NSAttributedString.Key.foregroundColor : UIColor.gray], for: .normal)
+        
+        //labels
+        UILabel.appearance().textColor = .gray
+        UILabel.appearance().font = UIFont(name: "Montserrat-Regular", size: 16)
         
     }
 }
