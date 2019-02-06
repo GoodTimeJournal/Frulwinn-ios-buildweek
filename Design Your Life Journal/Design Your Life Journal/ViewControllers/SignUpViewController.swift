@@ -62,8 +62,14 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setTheme()
         usernameTextField.text = ""
         userPasswordTextField.text = ""
         repeatPasswordTextField.text = ""
+    }
+    
+    func setTheme() {
+        //textfield
+        view.backgroundColor = .lightGray
     }
 }

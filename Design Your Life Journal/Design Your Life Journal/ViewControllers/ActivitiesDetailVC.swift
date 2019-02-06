@@ -72,6 +72,7 @@ class ActivitiesDetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
+        setTheme()
     }
     
     func updateViews() {
@@ -86,5 +87,10 @@ class ActivitiesDetailVC: UIViewController {
             enjoymentTextField.text = String(activity.enjoymentLevel)
             energyTextField.text = String(activity.energyLevel)
         }
+    }
+    
+    func setTheme() {
+        //textfield
+        view.backgroundColor = .lightGray
     }
 }

@@ -53,8 +53,16 @@ class SignInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setTheme()
         usernameTextField.text = ""
         passwordTextField.text = ""
     }
+    
+    func setTheme() {
+        //textfield
+        view.backgroundColor = .lightGray
+
+    }
+    
 }
 

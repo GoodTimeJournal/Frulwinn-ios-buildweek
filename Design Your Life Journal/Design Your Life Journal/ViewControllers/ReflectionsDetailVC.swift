@@ -46,6 +46,7 @@ class ReflectionsDetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setTheme()
         updateViews()
     }
     
@@ -59,5 +60,10 @@ class ReflectionsDetailVC: UIViewController {
             surprisesTextView.text = reflection.suprises
             insightsTextView.text = reflection.insights
         }
+    }
+    
+    func setTheme() {
+        //textfield
+        view.backgroundColor = .lightGray
     }
 }

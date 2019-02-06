@@ -16,6 +16,7 @@ enum Appearance {
     
     static func setAppearance() {
         //navigationbar
+        
         UINavigationBar.appearance().barTintColor = .lightGray
         UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.gray, NSAttributedString.Key.font: UIFont(name: "Montserrat-Regular", size: 30)!]
         
@@ -28,4 +29,5 @@ enum Appearance {
         UILabel.appearance().font = UIFont(name: "Montserrat-Regular", size: 16)
         
     }
+  
 }

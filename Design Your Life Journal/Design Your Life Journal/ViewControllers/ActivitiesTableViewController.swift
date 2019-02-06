@@ -9,6 +9,7 @@ class ActivitiesTableViewController: UITableViewController {
         
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setTheme()
         journalController.fetchActivities { (error) in
             if let error = error {
                 NSLog("Could not fetch activity data: \(error)")
@@ -18,6 +19,11 @@ class ActivitiesTableViewController: UITableViewController {
                 self.tableView.reloadData()
             }
         }
+    }
+    
+    func setTheme() {
+        //textfield
+        view.backgroundColor = .lightGray
     }
 
     // MARK: - Table view data source
@@ -32,6 +38,11 @@ class ActivitiesTableViewController: UITableViewController {
         cell.activity = activity
         return cell
     }
+    
+    func style(cell: UITableViewCell) {
+        //cell. style
+    }
+
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         let activity = journalController.activities[indexPath.row]

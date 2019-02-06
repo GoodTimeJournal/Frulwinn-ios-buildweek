@@ -16,7 +16,7 @@ class ReflectionsTableViewController: UITableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        setTheme()
         journalController.fetchReflections { (error) in
             if let error = error {
                 NSLog("Could not fetch data from reflections: \(error)")
@@ -26,6 +26,11 @@ class ReflectionsTableViewController: UITableViewController {
                 self.tableView.reloadData()
             }
         }
+    }
+    
+    func setTheme() {
+        //textfield
+        view.backgroundColor = .lightGray
     }
 
     // MARK: - Table view data source
@@ -40,6 +45,10 @@ class ReflectionsTableViewController: UITableViewController {
         cell.reflection = reflection
         
         return cell
+    }
+    
+    func style(cell: UITableViewCell) {
+        
     }
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
