@@ -3,11 +3,12 @@
 import Foundation
 
 //let baseURL = URL(string: "https://books-2462b.firebaseio.com/")!
-let baseURL = URL(string: "https://polar-plateau-24996.herokuapp.com/")!
+let baseURL = URL(string: "https://polar-plateau-24996.herokuapp.com/activities")!
 
 enum httpMethod: String {
     case put = "PUT"
     case delete = "DELETE"
+    case post = "POST"
 }
 
 class JournalController {
@@ -17,26 +18,40 @@ class JournalController {
     private(set) var reflections: [Reflection] = []
     
     //for activity
-    func putActivity(activity: Activity, completion: @escaping (Error?) -> Void) {
+    func postActivity(activity: Activity, completion: @escaping (Error?) -> Void) {
+        
         let authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMTQkSk8vbHB4RjZKa1MwUVhleFNwMmZHdS9Pc1lvU01URU1TZnF4YURac2VVclFyUkdiR2FiVlciLCJpYXQiOjE1NDk0MjAwODcsImV4cCI6MTU0OTc4MDA4N30.9Ke9kzZ9kCZA97ds-AQZuEm-f_N38rIODkzqA9tkGYk" //provided by Backend
 
-        let url = baseURL.appendingPathComponent(activity.id).appendingPathExtension("activity")
-        
+        let url = baseURL
+      
         var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = httpMethod.put.rawValue
+        urlRequest.httpMethod = httpMethod.post.rawValue
+        urlRequest.setValue(authToken, forHTTPHeaderField: "Authorization")
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
+        let activity: [String: Any] = ["name": activity.name, "fk": 1, "enjoymentRating": activity.enjoymentRating, "energyLevel": activity.energyLevel, "engagement": activity.engagement]
+        let jsonTodo: Data
         do {
-            let jsonEncoder = JSONEncoder()
-            urlRequest.httpBody = try jsonEncoder.encode(activity)
+            jsonTodo = try JSONSerialization.data(withJSONObject: activity, options: [])
+            urlRequest.httpBody = jsonTodo
         } catch {
-            NSLog("error encoding reflection")
-            completion(error)
+            print("Error: cannot create JSON from todo")
             return
         }
         
-        let dataTask = URLSession.shared.dataTask(with: urlRequest) { (_, _, error) in
+//        do {
+//            let jsonEncoder = JSONEncoder()
+//            urlRequest.httpBody = try jsonEncoder.encode(activity)
+//        } catch {
+//            NSLog("error encoding reflection")
+//            completion(error)
+//            return
+//        }
+        
+        let dataTask = URLSession.shared.dataTask(with: urlRequest) { (_, response, error) in
+            print(response)
             if let error = error {
-                NSLog("error trying to PUT data: \(error)")
+                NSLog("error trying to POST data: \(error)")
                 completion(error)
                 return
             }
@@ -45,14 +60,13 @@ class JournalController {
         dataTask.resume()
     }
     
-    func createActivity(name: String, engagement: Int, enjoymentRating: Int, energyLevel: Int, completion: @escaping (Error?) -> Void) {
-        let authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMTQkSk8vbHB4RjZKa1MwUVhleFNwMmZHdS9Pc1lvU01URU1TZnF4YURac2VVclFyUkdiR2FiVlciLCJpYXQiOjE1NDk0MjAwODcsImV4cCI6MTU0OTc4MDA4N30.9Ke9kzZ9kCZA97ds-AQZuEm-f_N38rIODkzqA9tkGYk" //provided by Backend
-
-        let activity = Activity(name: name, engagement: engagement, enjoymentRating: enjoymentRating, energyLevel: energyLevel)
-        putActivity(activity: activity, completion: completion)
+    func createActivity(name: String, engagement: Int, enjoymentRating: Int, energyLevel: Int, fk: Int, completion: @escaping (Error?) -> Void) {
+        
+        let activity = Activity(name: name, engagement: engagement, enjoymentRating: enjoymentRating, energyLevel: energyLevel, fk: fk)
+        postActivity(activity: activity, completion: completion)
     }
     
-    func updateActivity(activity: Activity, name: String, engagement: Int, enjoymentRating: Int, energyLevel: Int, completion: @escaping (Error?) -> Void) {
+    func updateActivity(activity: Activity, name: String, engagement: Int, enjoymentRating: Int, energyLevel: Int, fk: Int, completion: @escaping (Error?) -> Void) {
         let authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMTQkSk8vbHB4RjZKa1MwUVhleFNwMmZHdS9Pc1lvU01URU1TZnF4YURac2VVclFyUkdiR2FiVlciLCJpYXQiOjE1NDk0MjAwODcsImV4cCI6MTU0OTc4MDA4N30.9Ke9kzZ9kCZA97ds-AQZuEm-f_N38rIODkzqA9tkGYk" //provided by Backend
 
         guard let index = activities.index(of: activity) else { return }
@@ -61,7 +75,7 @@ class JournalController {
         activities[index].engagement = engagement
         activities[index].enjoymentRating = enjoymentRating
         activities[index].energyLevel = energyLevel
-        putActivity(activity: activities[index], completion: completion)
+        postActivity(activity: activities[index], completion: completion)
     }
     
     func fetchActivities(completion: @escaping (Error?) -> Void) {
@@ -100,7 +114,7 @@ class JournalController {
     func deleteActivity(activity: Activity, completion: @escaping (Error?) -> Void) {
         let authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMTQkSk8vbHB4RjZKa1MwUVhleFNwMmZHdS9Pc1lvU01URU1TZnF4YURac2VVclFyUkdiR2FiVlciLCJpYXQiOjE1NDk0MjAwODcsImV4cCI6MTU0OTc4MDA4N30.9Ke9kzZ9kCZA97ds-AQZuEm-f_N38rIODkzqA9tkGYk" //provided by Backend
 
-        let url = baseURL.appendingPathComponent(activity.id)
+        let url = baseURL.appendingPathComponent(String(activity.fk))
             .appendingPathExtension("activity")
         
         var request = URLRequest(url: url)
@@ -118,7 +132,8 @@ class JournalController {
         }
         
         
-        let dataTask = URLSession.shared.dataTask(with: request) { (_, _, error) in
+        let dataTask = URLSession.shared.dataTask(with: request) { (_, response, error) in
+            print(response)
             if let error = error {
                 NSLog("error trying to delete activity data: \(error)")
                 completion(error)
@@ -133,13 +148,13 @@ class JournalController {
     }
     
     //for reflection
-    func putReflection(reflection: Reflection, completion: @escaping (Error?) -> Void) {
+    func postReflection(reflection: Reflection, completion: @escaping (Error?) -> Void) {
         let authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMTQkSk8vbHB4RjZKa1MwUVhleFNwMmZHdS9Pc1lvU01URU1TZnF4YURac2VVclFyUkdiR2FiVlciLCJpYXQiOjE1NDk0MjAwODcsImV4cCI6MTU0OTc4MDA4N30.9Ke9kzZ9kCZA97ds-AQZuEm-f_N38rIODkzqA9tkGYk" //provided by Backend
 
         let url = baseURL.appendingPathComponent(reflection.id).appendingPathExtension("json")
         
         var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = httpMethod.put.rawValue
+        urlRequest.httpMethod = httpMethod.post.rawValue
         
         do {
             let jsonEncoder = JSONEncoder()
@@ -164,8 +179,8 @@ class JournalController {
     func createReflection(journalEntry: String, surprises: String, insights: String, trends: String, completion: @escaping (Error?) -> Void) {
         let authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMTQkSk8vbHB4RjZKa1MwUVhleFNwMmZHdS9Pc1lvU01URU1TZnF4YURac2VVclFyUkdiR2FiVlciLCJpYXQiOjE1NDk0MjAwODcsImV4cCI6MTU0OTc4MDA4N30.9Ke9kzZ9kCZA97ds-AQZuEm-f_N38rIODkzqA9tkGYk" //provided by Backend
 
-        let reflection = Reflection(journalEntry: journalEntry, surprises: surprises, insights: insights)
-        putReflection(reflection: reflection, completion: completion)
+        let reflection = Reflection(journalEntry: journalEntry, surprises: surprises, insights: insights, trends: trends)
+        postReflection(reflection: reflection, completion: completion)
     }
     
     func updateReflection(reflection: Reflection, journalEntry: String, surprises: String, insights: String, trends: String, completion: @escaping (Error?) -> Void) {
@@ -177,7 +192,7 @@ class JournalController {
         reflections[index].suprises = surprises
         reflections[index].insights = insights
         reflections[index].trends = trends
-        putReflection(reflection: reflections[index], completion: completion)
+        postReflection(reflection: reflections[index], completion: completion)
     }
     
     func fetchReflections(completion: @escaping (Error?) -> Void) {

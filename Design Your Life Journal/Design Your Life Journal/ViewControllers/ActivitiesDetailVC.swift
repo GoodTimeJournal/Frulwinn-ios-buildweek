@@ -46,7 +46,7 @@ class ActivitiesDetailVC: UIViewController {
             let energyLevelInt = Int(energyLevel) else { return }
 
         if let activity = activity {
-            journalController?.updateActivity(activity: activity, name: name, engagement: engagementInt, enjoymentRating: enjoymentRatingInt, energyLevel: energyLevelInt, completion: { (error) in
+            journalController?.updateActivity(activity: activity, name: name, engagement: engagementInt, enjoymentRating: enjoymentRatingInt, energyLevel: energyLevelInt, fk: 1, completion: { (error) in
                 if let error = error {
                     NSLog("Could not update activity: \(error)")
                     return
@@ -56,7 +56,8 @@ class ActivitiesDetailVC: UIViewController {
                 }
             })
         } else {
-            journalController?.createActivity(name: name, engagement: engagementInt, enjoymentRating: enjoymentRatingInt, energyLevel: energyLevelInt, completion: { (error) in
+            //get default fk and place it here
+            journalController?.createActivity(name: name, engagement: engagementInt, enjoymentRating: enjoymentRatingInt, energyLevel: energyLevelInt, fk: 1, completion: { (error) in
                 if let error = error {
                     NSLog("Could not create activity: \(error)")
                     return
@@ -91,6 +92,6 @@ class ActivitiesDetailVC: UIViewController {
     
     func setTheme() {
         //textfield
-        view.backgroundColor = .lightGray
+        view.backgroundColor = .white
     }
 }

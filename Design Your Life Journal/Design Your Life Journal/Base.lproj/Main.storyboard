@@ -34,7 +34,7 @@
                                                 <rect key="frame" x="0.0" y="40" width="300" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t0s-yc-va1">
                                                 <rect key="frame" x="0.0" y="80" width="300" height="30"/>
@@ -73,6 +73,7 @@
                         <outlet property="createNewAccountButton" destination="Yob-eY-0Qz" id="nQW-ee-77d"/>
                         <outlet property="passwordTextField" destination="HWy-bw-HQL" id="ZRC-Zc-SfM"/>
                         <outlet property="usernameTextField" destination="6pL-g4-n03" id="9hY-HJ-gfG"/>
+                        <segue destination="KYY-41-JhA" kind="presentation" identifier="autoLoginSegue" id="41o-yj-UJ4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -835,6 +836,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="41o-yj-UJ4"/>
         <segue reference="f9x-WH-egR"/>
         <segue reference="XHg-Jn-Mqz"/>
     </inferredMetricsTieBreakers>

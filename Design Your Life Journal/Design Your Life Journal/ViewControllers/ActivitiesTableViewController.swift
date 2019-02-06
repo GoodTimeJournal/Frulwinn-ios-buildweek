@@ -23,7 +23,7 @@ class ActivitiesTableViewController: UITableViewController {
     
     func setTheme() {
         //textfield
-        view.backgroundColor = .lightGray
+        view.backgroundColor = .white
     }
 
     // MARK: - Table view data source

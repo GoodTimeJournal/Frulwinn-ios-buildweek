@@ -26,7 +26,7 @@ class LoginViewController: UIViewController {
     
     func setTheme() {
         //textfield
-        view.backgroundColor = .lightGray
+        view.backgroundColor = .white
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

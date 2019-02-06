@@ -15,6 +15,6 @@ class AboutViewController: UIViewController {
     
     func setTheme() {
         //textfield
-        view.backgroundColor = .lightGray
+        view.backgroundColor = .white
     }
 }

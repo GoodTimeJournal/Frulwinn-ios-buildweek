@@ -19,10 +19,10 @@ struct Activity: Codable, Equatable {
     var enjoymentRating: Int
     var energyLevel: Int
     let timestamp: Date
-    let id: String
+    let fk: Int
     
-    init(name: String, engagement: Int, enjoymentRating: Int, energyLevel: Int, timestamp: Date = Date(), id: String = UUID().uuidString) {
-        (self.name, self.engagement, self.enjoymentRating, self.energyLevel, self.timestamp, self.id) = (name, engagement, enjoymentRating, energyLevel, timestamp, id)
+    init(name: String, engagement: Int, enjoymentRating: Int, energyLevel: Int, timestamp: Date = Date(), fk: Int = UUID().hashValue) {
+        (self.name, self.engagement, self.enjoymentRating, self.energyLevel, self.timestamp, self.fk) = (name, engagement, enjoymentRating, energyLevel, timestamp, fk)
     }
 }
 
