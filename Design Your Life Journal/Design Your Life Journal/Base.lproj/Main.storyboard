@@ -56,6 +56,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="create new account"/>
                                 <connections>
+                                    <action selector="createNewAccountButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uPO-DB-DjE"/>
                                     <segue destination="TZR-0B-0sj" kind="show" id="qhK-sw-uci"/>
                                 </connections>
                             </button>
@@ -82,7 +83,7 @@
         <!--Sign Up View Controller-->
         <scene sceneID="ZUO-MZ-5yC">
             <objects>
-                <viewController id="TZR-0B-0sj" customClass="SignUpViewController" customModule="Design_Your_Life_Journal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpViewController" id="TZR-0B-0sj" customClass="SignUpViewController" customModule="Design_Your_Life_Journal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hBY-VC-OYx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -121,7 +122,7 @@
                                                 <state key="normal" title="sign up"/>
                                                 <connections>
                                                     <action selector="signup:" destination="TZR-0B-0sj" eventType="touchUpInside" id="4fh-Jn-zN3"/>
-                                                    <segue destination="iOk-hG-g3t" kind="show" id="RE4-4T-Zdc"/>
+                                                    <segue destination="iOk-hG-g3t" kind="show" identifier="signupToHome" id="RE4-4T-Zdc"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -176,6 +177,7 @@
                                         <state key="normal" title="login"/>
                                         <connections>
                                             <action selector="login:" destination="iOk-hG-g3t" eventType="touchUpInside" id="BOE-yM-f7d"/>
+                                            <segue destination="KYY-41-JhA" kind="show" identifier="loginToHome" id="PW4-Gv-6u8"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -657,7 +659,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="cOw-oz-91h">
                                         <rect key="frame" x="0.0" y="38" width="315" height="310"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="insights" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sPp-9P-nap">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="insights " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sPp-9P-nap">
                                                 <rect key="frame" x="0.0" y="0.0" width="315" height="150"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -667,7 +669,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="surprises" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EMi-kY-ICI">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="surprises " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EMi-kY-ICI">
                                                 <rect key="frame" x="0.0" y="160" width="315" height="150"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -748,6 +750,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="ZG3-o9-nQc"/>
         <segue reference="f9x-WH-egR"/>
         <segue reference="XHg-Jn-Mqz"/>
     </inferredMetricsTieBreakers>

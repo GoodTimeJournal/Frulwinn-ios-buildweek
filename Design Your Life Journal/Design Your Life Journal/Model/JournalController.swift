@@ -71,7 +71,7 @@ class JournalController {
         
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
-        request.addValue(authToken, forHTTPHeaderField: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMTQkSk8vbHB4RjZKa1MwUVhleFNwMmZHdS9Pc1lvU01URU1TZnF4YURac2VVclFyUkdiR2FiVlciLCJpYXQiOjE1NDk0MjAwODcsImV4cCI6MTU0OTc4MDA4N30.9Ke9kzZ9kCZA97ds-AQZuEm-f_N38rIODkzqA9tkGYk") // authToken here will be the authorization
+        request.addValue(authToken, forHTTPHeaderField: "Authorization") // authToken here will be the authorization
         
         let dataTask = URLSession.shared.dataTask(with: url) { (data, _, error) in
             if let error = error {
@@ -105,7 +105,7 @@ class JournalController {
         
         var request = URLRequest(url: url)
         request.httpMethod = httpMethod.delete.rawValue
-        request.addValue(authToken, forHTTPHeaderField: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMTQkSk8vbHB4RjZKa1MwUVhleFNwMmZHdS9Pc1lvU01URU1TZnF4YURac2VVclFyUkdiR2FiVlciLCJpYXQiOjE1NDk0MjAwODcsImV4cCI6MTU0OTc4MDA4N30.9Ke9kzZ9kCZA97ds-AQZuEm-f_N38rIODkzqA9tkGYk") // authToken here will be the authorization
+        request.addValue(authToken, forHTTPHeaderField: "Authorization") // authToken here will be the authorization
         
         do {
             let encoder = JSONEncoder()
@@ -185,7 +185,7 @@ class JournalController {
         
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
-        request.addValue(authToken, forHTTPHeaderField: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMTQkSk8vbHB4RjZKa1MwUVhleFNwMmZHdS9Pc1lvU01URU1TZnF4YURac2VVclFyUkdiR2FiVlciLCJpYXQiOjE1NDk0MjAwODcsImV4cCI6MTU0OTc4MDA4N30.9Ke9kzZ9kCZA97ds-AQZuEm-f_N38rIODkzqA9tkGYk") //authToken here will be the authorization token provided by Travis
+        request.addValue(authToken, forHTTPHeaderField: "Authorization") //authToken here will be the authorization token provided by Travis
         
         let dataTask = URLSession.shared.dataTask(with: url) { (data, _, error) in
             if let error = error {
@@ -224,7 +224,7 @@ class JournalController {
         
         var request = URLRequest(url: url)
         request.httpMethod = httpMethod.delete.rawValue
-        request.addValue(authToken, forHTTPHeaderField: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMTQkSk8vbHB4RjZKa1MwUVhleFNwMmZHdS9Pc1lvU01URU1TZnF4YURac2VVclFyUkdiR2FiVlciLCJpYXQiOjE1NDk0MjAwODcsImV4cCI6MTU0OTc4MDA4N30.9Ke9kzZ9kCZA97ds-AQZuEm-f_N38rIODkzqA9tkGYk") // authToken here will be the authorization
+        request.addValue(authToken, forHTTPHeaderField: "Authorization") // authToken here will be the authorization
         
         do {
             let encoder = JSONEncoder()
