@@ -5,13 +5,18 @@ import UIKit
 class SignUpViewController: UIViewController {
     
     //MARK: - Outlets
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
+    
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var userPasswordTextField: UITextField!
     @IBOutlet weak var repeatPasswordTextField: UITextField!
     @IBAction func signup(_ sender: Any) {
 
-        guard let username = usernameTextField.text, !username.isEmpty,
-        let userPassword = userPasswordTextField.text, !userPassword.isEmpty,
+        guard let name = nameTextField.text, !name.isEmpty,
+            let email = emailTextField.text, !email.isEmpty,
+            let username = usernameTextField.text, !username.isEmpty,
+            let userPassword = userPasswordTextField.text, !userPassword.isEmpty,
             let repeatPassword = repeatPasswordTextField.text, !repeatPassword.isEmpty else { return }
         
         if userPasswordTextField.text != repeatPasswordTextField.text {
@@ -71,5 +76,11 @@ class SignUpViewController: UIViewController {
     func setTheme() {
         //textfield
         view.backgroundColor = .lightGray
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // if information is complete segue
+        guard let destination = segue.destination as? LoginViewController else { return }
+
     }
 }

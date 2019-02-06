@@ -40,13 +40,13 @@ class ActivitiesDetailVC: UIViewController {
         guard let name = activityTextField.text, !name.isEmpty,
             let engagement = engagementTextField.text, !engagement.isEmpty,
             let engagementInt = Int(engagement),
-            let enjoymentLevel = enjoymentTextField.text, !enjoymentLevel.isEmpty,
-            let enjoymentLevelInt = Int(enjoymentLevel),
+            let enjoymentRating = enjoymentTextField.text, !enjoymentRating.isEmpty,
+            let enjoymentRatingInt = Int(enjoymentRating),
             let energyLevel = energyTextField.text, !energyLevel.isEmpty,
             let energyLevelInt = Int(energyLevel) else { return }
 
         if let activity = activity {
-            journalController?.updateActivity(activity: activity, name: name, engagement: engagementInt, enjoymentLevel: enjoymentLevelInt, energyLevel: energyLevelInt, completion: { (error) in
+            journalController?.updateActivity(activity: activity, name: name, engagement: engagementInt, enjoymentRating: enjoymentRatingInt, energyLevel: energyLevelInt, completion: { (error) in
                 if let error = error {
                     NSLog("Could not update activity: \(error)")
                     return
@@ -56,7 +56,7 @@ class ActivitiesDetailVC: UIViewController {
                 }
             })
         } else {
-            journalController?.createActivity(name: name, engagement: engagementInt, enjoymentLevel: enjoymentLevelInt, energyLevel: energyLevelInt, completion: { (error) in
+            journalController?.createActivity(name: name, engagement: engagementInt, enjoymentRating: enjoymentRatingInt, energyLevel: energyLevelInt, completion: { (error) in
                 if let error = error {
                     NSLog("Could not create activity: \(error)")
                     return
@@ -84,7 +84,7 @@ class ActivitiesDetailVC: UIViewController {
             title = activity.name
             activityTextField.text = activity.name
             engagementTextField.text = String(activity.engagement)
-            enjoymentTextField.text = String(activity.enjoymentLevel)
+            enjoymentTextField.text = String(activity.enjoymentRating)
             energyTextField.text = String(activity.energyLevel)
         }
     }

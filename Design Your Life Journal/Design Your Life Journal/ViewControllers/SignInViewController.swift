@@ -64,5 +64,14 @@ class SignInViewController: UIViewController {
 
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        //so what i want to say is if username and password match continue to
+        guard let destination = segue.destination as? AboutViewController else { return }
+        
+        //do i need to make a controller for the user? which gets passed?
+    }
+    
+    
 }
 

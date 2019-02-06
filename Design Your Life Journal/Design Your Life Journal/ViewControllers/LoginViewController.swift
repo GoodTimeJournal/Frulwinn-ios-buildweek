@@ -28,4 +28,11 @@ class LoginViewController: UIViewController {
         //textfield
         view.backgroundColor = .lightGray
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //if username and password is correct go to about
+        
+        guard let destination = segue.destination as? AboutViewController else { return }
+
+    }
 }

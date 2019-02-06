@@ -45,21 +45,21 @@ class JournalController {
         dataTask.resume()
     }
     
-    func createActivity(name: String, engagement: Int, enjoymentLevel: Int, energyLevel: Int, completion: @escaping (Error?) -> Void) {
+    func createActivity(name: String, engagement: Int, enjoymentRating: Int, energyLevel: Int, completion: @escaping (Error?) -> Void) {
         let authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMTQkSk8vbHB4RjZKa1MwUVhleFNwMmZHdS9Pc1lvU01URU1TZnF4YURac2VVclFyUkdiR2FiVlciLCJpYXQiOjE1NDk0MjAwODcsImV4cCI6MTU0OTc4MDA4N30.9Ke9kzZ9kCZA97ds-AQZuEm-f_N38rIODkzqA9tkGYk" //provided by Backend
 
-        let activity = Activity(name: name, engagement: engagement, enjoymentLevel: enjoymentLevel, energyLevel: energyLevel)
+        let activity = Activity(name: name, engagement: engagement, enjoymentRating: enjoymentRating, energyLevel: energyLevel)
         putActivity(activity: activity, completion: completion)
     }
     
-    func updateActivity(activity: Activity, name: String, engagement: Int, enjoymentLevel: Int, energyLevel: Int, completion: @escaping (Error?) -> Void) {
+    func updateActivity(activity: Activity, name: String, engagement: Int, enjoymentRating: Int, energyLevel: Int, completion: @escaping (Error?) -> Void) {
         let authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMTQkSk8vbHB4RjZKa1MwUVhleFNwMmZHdS9Pc1lvU01URU1TZnF4YURac2VVclFyUkdiR2FiVlciLCJpYXQiOjE1NDk0MjAwODcsImV4cCI6MTU0OTc4MDA4N30.9Ke9kzZ9kCZA97ds-AQZuEm-f_N38rIODkzqA9tkGYk" //provided by Backend
 
         guard let index = activities.index(of: activity) else { return }
         
         activities[index].name = name
         activities[index].engagement = engagement
-        activities[index].enjoymentLevel = enjoymentLevel
+        activities[index].enjoymentRating = enjoymentRating
         activities[index].energyLevel = energyLevel
         putActivity(activity: activities[index], completion: completion)
     }
@@ -161,14 +161,14 @@ class JournalController {
         dataTask.resume()
     }
     
-    func createReflection(journalEntry: String, surprises: String, insights: String, completion: @escaping (Error?) -> Void) {
+    func createReflection(journalEntry: String, surprises: String, insights: String, trends: String, completion: @escaping (Error?) -> Void) {
         let authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMTQkSk8vbHB4RjZKa1MwUVhleFNwMmZHdS9Pc1lvU01URU1TZnF4YURac2VVclFyUkdiR2FiVlciLCJpYXQiOjE1NDk0MjAwODcsImV4cCI6MTU0OTc4MDA4N30.9Ke9kzZ9kCZA97ds-AQZuEm-f_N38rIODkzqA9tkGYk" //provided by Backend
 
         let reflection = Reflection(journalEntry: journalEntry, surprises: surprises, insights: insights)
         putReflection(reflection: reflection, completion: completion)
     }
     
-    func updateReflection(reflection: Reflection, journalEntry: String, surprises: String, insights: String, completion: @escaping (Error?) -> Void) {
+    func updateReflection(reflection: Reflection, journalEntry: String, surprises: String, insights: String, trends: String, completion: @escaping (Error?) -> Void) {
         let authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMTQkSk8vbHB4RjZKa1MwUVhleFNwMmZHdS9Pc1lvU01URU1TZnF4YURac2VVclFyUkdiR2FiVlciLCJpYXQiOjE1NDk0MjAwODcsImV4cCI6MTU0OTc4MDA4N30.9Ke9kzZ9kCZA97ds-AQZuEm-f_N38rIODkzqA9tkGYk" //provided by Backend
 
         guard let index = reflections.index(of: reflection) else { return }
@@ -176,6 +176,7 @@ class JournalController {
         reflections[index].journalEntry = journalEntry
         reflections[index].suprises = surprises
         reflections[index].insights = insights
+        reflections[index].trends = trends
         putReflection(reflection: reflections[index], completion: completion)
     }
     
