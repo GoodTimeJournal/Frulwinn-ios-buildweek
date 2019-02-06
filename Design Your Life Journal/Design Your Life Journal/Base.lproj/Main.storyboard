@@ -205,26 +205,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="lx1-yi-YBz">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="cMd-AO-loP">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                </searchBar>
-                            </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <constraints>
-                                <constraint firstItem="cMd-AO-loP" firstAttribute="top" secondItem="lx1-yi-YBz" secondAttribute="top" id="6gI-y8-B9n"/>
-                                <constraint firstItem="cMd-AO-loP" firstAttribute="leading" secondItem="lx1-yi-YBz" secondAttribute="leading" id="C5p-9h-Tgv"/>
-                                <constraint firstAttribute="bottom" secondItem="cMd-AO-loP" secondAttribute="bottom" id="VPg-vu-70l"/>
-                                <constraint firstAttribute="trailing" secondItem="cMd-AO-loP" secondAttribute="trailing" id="uzc-6v-hrd"/>
-                            </constraints>
-                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="activitiesCell" rowHeight="100" id="p2F-ct-sdZ" customClass="ActivitiesTVCell" customModule="Design_Your_Life_Journal" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="84" width="375" height="100"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="p2F-ct-sdZ" id="efr-yu-y3S">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
@@ -281,9 +264,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="searchbar" destination="cMd-AO-loP" id="ond-ru-Seh"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9BU-CG-MvV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -598,25 +578,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="kJX-hf-ai7">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="KBc-ba-VTs">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                </searchBar>
-                            </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <constraints>
-                                <constraint firstAttribute="trailing" secondItem="KBc-ba-VTs" secondAttribute="trailing" id="TAN-9R-Lzn"/>
-                                <constraint firstItem="KBc-ba-VTs" firstAttribute="leading" secondItem="kJX-hf-ai7" secondAttribute="leading" id="hMF-8G-ZIF"/>
-                                <constraint firstItem="KBc-ba-VTs" firstAttribute="top" secondItem="kJX-hf-ai7" secondAttribute="top" id="mFb-ue-L7B"/>
-                            </constraints>
-                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="reflectionCell" rowHeight="100" id="gWD-LA-a1t" customClass="ReflectionsTVCell" customModule="Design_Your_Life_Journal" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="84" width="375" height="100"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gWD-LA-a1t" id="neJ-Xs-4eJ">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>

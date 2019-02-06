@@ -17,10 +17,10 @@ struct Activity: Codable, Equatable {
     var enjoymentLevel: Int
     var energyLevel: Int
     let timestamp: Date
-    let identifier: String
+    let id: String
     
-    init(name: String, engagement: Int, enjoymentLevel: Int, energyLevel: Int, timestamp: Date = Date(), identifier: String = UUID().uuidString) {
-        (self.name, self.engagement, self.enjoymentLevel, self.energyLevel, self.timestamp, self.identifier) = (name, engagement, enjoymentLevel, energyLevel, timestamp, identifier)
+    init(name: String, engagement: Int, enjoymentLevel: Int, energyLevel: Int, timestamp: Date = Date(), id: String = UUID().uuidString) {
+        (self.name, self.engagement, self.enjoymentLevel, self.energyLevel, self.timestamp, self.id) = (name, engagement, enjoymentLevel, energyLevel, timestamp, id)
     }
 }
 
@@ -29,9 +29,9 @@ struct Reflection: Codable, Equatable {
     let timestamp: Date
     var suprises: String
     var insights: String
-    let identifier: String
+    let id: String
     
-    init(journalEntry: String, timestamp: Date = Date(), surprises: String, insights: String, identifier: String = UUID().uuidString) {
-        (self.journalEntry, self.timestamp, self.suprises, self.insights, self.identifier) = (journalEntry, timestamp, surprises, insights, identifier)
+    init(journalEntry: String, timestamp: Date = Date(), surprises: String, insights: String, id: String = UUID().uuidString) {
+        (self.journalEntry, self.timestamp, self.suprises, self.insights, self.id) = (journalEntry, timestamp, surprises, insights, id)
     }
 }

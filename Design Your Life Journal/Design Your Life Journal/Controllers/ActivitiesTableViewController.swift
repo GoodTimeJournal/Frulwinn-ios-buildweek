@@ -2,13 +2,11 @@
 
 import UIKit
 
-class ActivitiesTableViewController: UITableViewController, UISearchBarDelegate {
+class ActivitiesTableViewController: UITableViewController {
     
     //MARK: - Properties
     let journalController = JournalController()
-    
-    @IBOutlet weak var searchbar: UISearchBar!
-    
+        
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         journalController.fetchActivities { (error) in
@@ -16,17 +14,6 @@ class ActivitiesTableViewController: UITableViewController, UISearchBarDelegate 
                 NSLog("Could not fetch activity data: \(error)")
                 return
             }
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let searchTerm = searchBar.text, !searchTerm.isEmpty else { return }
-        
-        journalController.searchActivity(searchTerm: searchTerm) { (_) in
-            
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }

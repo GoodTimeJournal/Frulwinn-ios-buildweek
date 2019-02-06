@@ -2,7 +2,8 @@
 
 import Foundation
 
-let baseURL = URL(string: "https://books-2462b.firebaseio.com/")!
+//let baseURL = URL(string: "https://books-2462b.firebaseio.com/")!
+let baseURL = URL(string: "https://polar-plateau-24996.herokuapp.com/")!
 
 enum httpMethod: String {
     case put = "PUT"
@@ -16,45 +17,8 @@ class JournalController {
     private(set) var reflections: [Reflection] = []
     
     //for activity
-    func searchActivity(searchTerm: String, completion: @escaping (Error?) -> Void) {
-        var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
-        let searchQueryItem = URLQueryItem(name: "name", value: searchTerm)
-        urlComponents?.queryItems = [searchQueryItem]
-        
-        guard let requestURL = urlComponents?.url else {
-            NSLog("wasn't able to construct URL")
-            completion(NSError())
-            return
-        }
-        let dataTask = URLSession.shared.dataTask(with: requestURL) { (data, _, error) in
-            if let error = error {
-                NSLog("error fetching search results for activities : \(error)")
-                completion(error)
-                return
-            }
-            
-            guard let data = data else {
-                NSLog("results didn't return valid data")
-                completion(NSError())
-                return
-            }
-            
-            do {
-                let jsonDecoder = JSONDecoder()
-                let activities = try jsonDecoder.decode([Activity].self, from: data)
-                self.activities = activities
-                completion(nil)
-            } catch {
-                NSLog("error decoding JSON: \(error)")
-                completion(error)
-                return
-            }
-        }
-        dataTask.resume()
-    }
-    
-    func putActivity(activity: Activity, completion: @escaping (Error?) -> Void) {
-        let url = baseURL.appendingPathComponent(activity.identifier).appendingPathExtension("json")
+        func putActivity(activity: Activity, completion: @escaping (Error?) -> Void) {
+        let url = baseURL.appendingPathComponent(activity.id).appendingPathExtension("json")
         
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = httpMethod.put.rawValue
@@ -122,7 +86,7 @@ class JournalController {
         dataTask.resume()
     }
     func deleteActivity(activity: Activity, completion: @escaping (Error?) -> Void) {
-        let url = baseURL.appendingPathComponent(activity.identifier)
+        let url = baseURL.appendingPathComponent(activity.id)
             .appendingPathExtension("json")
         
         var request = URLRequest(url: url)
@@ -155,7 +119,7 @@ class JournalController {
     
     //for reflection
     func putReflection(reflection: Reflection, completion: @escaping (Error?) -> Void) {
-        let url = baseURL.appendingPathComponent(reflection.identifier).appendingPathExtension("json")
+        let url = baseURL.appendingPathComponent(reflection.id).appendingPathExtension("json")
         
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = httpMethod.put.rawValue
@@ -196,36 +160,44 @@ class JournalController {
     }
     
     func fetchReflections(completion: @escaping (Error?) -> Void) {
-        let url = baseURL.appendingPathExtension("json")
+        let authToken = "155" //provided by Backend
+        let url = baseURL.appendingPathExtension("reflections")
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.addValue(authToken, forHTTPHeaderField: "Authorization") //authToken here will be the authorization token provided by Travis
         
         let dataTask = URLSession.shared.dataTask(with: url) { (data, _, error) in
             if let error = error {
-                NSLog("unable to decode activity: \(error)")
-                completion(error)
+                NSLog("error getting reflections: \(error)")
+                //completion(error)
                 return
             }
             
-            if let data = data {
-                let jsonDecoder = JSONDecoder()
+            guard let data = data else {
+                completion(error)
+                return
+            }
                 
                 do {
-                    let reflectionsDictionary = try jsonDecoder.decode([String: Reflection].self, from: data)
-                    let reflections = reflectionsDictionary.map { $0.value }
-                    print("reflections", reflections)
-                    self.reflections = reflections.sorted(by: { $0.timestamp > $1.timestamp })
-                    completion(nil)
+                    let jsonDecoder = JSONDecoder()
+                    let reflections = try jsonDecoder.decode(Reflection.self, from: data)
+                    //let reflection = reflections.map { $0.value }
+                    //print("reflections", reflections)
+                    //self.reflections = reflections.sorted(by: { $0.timestamp > $1.timestamp })
+                    //completion(nil)
+                    self.reflections = [reflections]
                 } catch {
                     NSLog("could not decode activity data")
                     completion(error)
                     return
                 }
             }
-        }
         dataTask.resume()
     }
     
     func deleteReflection(reflection: Reflection, completion: @escaping (Error?) -> Void) {
-        let url = baseURL.appendingPathComponent(reflection.identifier)
+        let url = baseURL.appendingPathComponent(reflection.id)
             .appendingPathExtension("json")
         
         var request = URLRequest(url: url)
@@ -251,43 +223,6 @@ class JournalController {
             guard let index = self.reflections.index(of: reflection) else { return }
             self.reflections.remove(at: index)
             completion(nil)
-        }
-        dataTask.resume()
-    }
-    
-    func searchReflection(searchTerm: String, completion: @escaping (Error?) -> Void) {
-        var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
-        let searchQueryItem = URLQueryItem(name: "journalEntry", value: searchTerm)
-        urlComponents?.queryItems = [searchQueryItem]
-        
-        guard let requestURL = urlComponents?.url else {
-            NSLog("wasn't able to construct URL")
-            completion(NSError())
-            return
-        }
-        let dataTask = URLSession.shared.dataTask(with: requestURL) { (data, _, error) in
-            if let error = error {
-                NSLog("error fetching search results for reflections : \(error)")
-                completion(error)
-                return
-            }
-            
-            guard let data = data else {
-                NSLog("results didn't return valid data")
-                completion(NSError())
-                return
-            }
-            
-            do {
-                let jsonDecoder = JSONDecoder()
-                let reflections = try jsonDecoder.decode([Reflection].self, from: data)
-                self.reflections = reflections
-                completion(nil)
-            } catch {
-                NSLog("error decoding JSON: \(error)")
-                completion(error)
-                return
-            }
         }
         dataTask.resume()
     }
