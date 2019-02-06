@@ -68,6 +68,9 @@ class ReflectionsDetailVC: UIViewController {
     
     func setTheme() {
         //textfield
+        insightsTextView.backgroundColor = .lightGray
+        surprisesTextView.backgroundColor = .lightGray
+        trendsTextView.backgroundColor = .lightGray
         view.backgroundColor = .white
     }
 }
