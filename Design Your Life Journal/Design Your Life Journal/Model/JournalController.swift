@@ -61,12 +61,43 @@ class JournalController {
     func updateActivity(activity: Activity, name: String, engagement: Int, enjoymentRating: Int, energyLevel: Int, fk: Int, completion: @escaping (Error?) -> Void) {
         
         guard let index = activities.index(of: activity) else { return }
+        var updatedActivity = self.activities[index]
+
+        updatedActivity.name = name
+        updatedActivity.engagement = engagement
+        updatedActivity.enjoymentRating = enjoymentRating
+        updatedActivity.energyLevel = energyLevel
         
-        activities[index].name = name
-        activities[index].engagement = engagement
-        activities[index].enjoymentRating = enjoymentRating
-        activities[index].energyLevel = energyLevel
-        postActivity(activity: activities[index], completion: completion)
+        let authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMTQkSk8vbHB4RjZKa1MwUVhleFNwMmZHdS9Pc1lvU01URU1TZnF4YURac2VVclFyUkdiR2FiVlciLCJpYXQiOjE1NDk0MjAwODcsImV4cCI6MTU0OTc4MDA4N30.9Ke9kzZ9kCZA97ds-AQZuEm-f_N38rIODkzqA9tkGYk" //provided by Backend
+
+        let url = baseURL.appendingPathComponent("activities").appendingPathComponent(String(activity.id))
+
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = httpMethod.put.rawValue
+        urlRequest.setValue(authToken, forHTTPHeaderField: "Authorization")
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        let activity: [String: Any] = ["name": updatedActivity.name, "fk": 1, "engagement": updatedActivity.engagement, "enjoymentRating": updatedActivity.enjoymentRating, "energyLevel": updatedActivity.energyLevel]
+        
+        let jsonTodo: Data
+        do {
+            jsonTodo = try JSONSerialization.data(withJSONObject: activity, options: [])
+            urlRequest.httpBody = jsonTodo
+        } catch {
+            print("Error: cannot create JSON from todo")
+            return
+        }
+
+        let dataTask = URLSession.shared.dataTask(with: urlRequest) { (_, _, error) in
+            if let error = error {
+                NSLog("error trying to PUT data: \(error)")
+                completion(error)
+                return
+            }
+            self.activities[index] = updatedActivity
+            completion(nil)
+        }
+        dataTask.resume()
     }
     
     func fetchActivities(completion: @escaping (Error?) -> Void) {
@@ -110,23 +141,12 @@ class JournalController {
     func deleteActivity(activity: Activity, completion: @escaping (Error?) -> Void) {
         let authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMTQkSk8vbHB4RjZKa1MwUVhleFNwMmZHdS9Pc1lvU01URU1TZnF4YURac2VVclFyUkdiR2FiVlciLCJpYXQiOjE1NDk0MjAwODcsImV4cCI6MTU0OTc4MDA4N30.9Ke9kzZ9kCZA97ds-AQZuEm-f_N38rIODkzqA9tkGYk" //provided by Backend
         
-        let url = baseURL.appendingPathComponent("activities")
+        let url = baseURL.appendingPathComponent("activities").appendingPathComponent(String(activity.id))
         
         var request = URLRequest(url: url)
         request.httpMethod = httpMethod.delete.rawValue
         request.addValue(authToken, forHTTPHeaderField: "Authorization")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        do {
-            let encoder = JSONEncoder()
-            let encodedActivity = try encoder.encode(activity)
-            request.httpBody = encodedActivity
-        } catch {
-            NSLog("error encoding activity: \(error)")
-            completion(error)
-            return
-        }
-        
         
         let dataTask = URLSession.shared.dataTask(with: request) { (_, _, error) in
             //print(response)
@@ -141,6 +161,7 @@ class JournalController {
         }
         dataTask.resume()
     }
+    
     
     // for reflection
     func postReflection(reflection: Reflection, completion: @escaping (Error?) -> Void) {
