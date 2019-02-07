@@ -63,10 +63,10 @@ class LoginViewController: UIViewController {
     
     func setTheme() {
         title = "Login"
-        usernameTextField.backgroundColor = UIColor.lightGray.withAlphaComponent(0.15)
+        usernameTextField.backgroundColor = UIColor.lightGray.withAlphaComponent(0.25)
         usernameTextField.layer.cornerRadius = 4
         usernameTextField.font = Appearance.montserratRegularFont(with: .body, pointSize: 15)
-        passwordTextField.backgroundColor = UIColor.lightGray.withAlphaComponent(0.15)
+        passwordTextField.backgroundColor = UIColor.lightGray.withAlphaComponent(0.25)
         passwordTextField.textColor = .darkBlue
         passwordTextField.layer.cornerRadius = 4
         passwordTextField.font = Appearance.montserratRegularFont(with: .body, pointSize: 15)

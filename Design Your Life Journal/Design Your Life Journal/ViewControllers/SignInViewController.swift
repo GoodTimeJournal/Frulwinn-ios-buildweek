@@ -6,7 +6,6 @@ class SignInViewController: UIViewController {
     
     //MARK: - Outlets
     @IBOutlet weak var login: UIButton!
-    @IBOutlet weak var createNewAccountButton: UIButton!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBAction func login(_ sender: Any) {
@@ -61,15 +60,7 @@ class SignInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let image = UIImage(named: "logo")
-        let imageView = UIImageView(image: image)
-        imageView.contentMode = .center
-        imageView.contentMode = .scaleAspectFit
-        navigationItem.titleView = imageView
-        
-        setNeedsStatusBarAppearanceUpdate()
-        
+        title = "login"
         setTheme()
         usernameTextField.text = ""
         passwordTextField.text = ""
@@ -77,16 +68,15 @@ class SignInViewController: UIViewController {
     
     func setTheme() {
         //textfield
-        usernameTextField.backgroundColor = UIColor.lightGray.withAlphaComponent(0.15)
+        usernameTextField.backgroundColor = UIColor.lightGray.withAlphaComponent(0.25)
         usernameTextField.layer.cornerRadius = 4
         usernameTextField.font = Appearance.montserratRegularFont(with: .body, pointSize: 15)
-        passwordTextField.backgroundColor = UIColor.lightGray.withAlphaComponent(0.15)
+        passwordTextField.backgroundColor = UIColor.lightGray.withAlphaComponent(0.25)
         passwordTextField.textColor = .darkBlue
         passwordTextField.layer.cornerRadius = 4
         passwordTextField.font = Appearance.montserratRegularFont(with: .body, pointSize: 15)
         
         Appearance.style(button: login)
-        Appearance.style(button: createNewAccountButton)
         
         view.backgroundColor = .white
 

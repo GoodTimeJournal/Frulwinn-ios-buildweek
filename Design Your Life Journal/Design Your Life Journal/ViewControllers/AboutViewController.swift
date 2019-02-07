@@ -11,9 +11,8 @@ class AboutViewController: UIViewController {
         super.viewDidLoad()
         setTheme()
     }
-    
+
     func setTheme() {
-        //textfield
-        view.backgroundColor = UIColor(patternImage: UIImage(named: "cellWithPlant")!)
+        aboutLabel.textColor = .white
     }
 }

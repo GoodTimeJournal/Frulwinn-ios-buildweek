@@ -184,12 +184,42 @@ class JournalController {
     func updateReflection(reflection: Reflection, journalEntry: String, surprises: String, insights: String, trends: String, week: String, fk: Int, completion: @escaping (Error?) -> Void) {
         
         guard let index = self.reflections.index(of: reflection) else { return }
-        self.reflections[index].journalEntry = journalEntry
-        self.reflections[index].surprises = surprises
-        self.reflections[index].insights = insights
-        self.reflections[index].trends = trends
-        self.reflections[index].week = week
-        postReflection(reflection: reflections[index], completion: completion)
+        var updatedReflection = self.reflections[index]
+        updatedReflection.journalEntry = journalEntry
+        updatedReflection.surprises = surprises
+        updatedReflection.insights = insights
+        updatedReflection.trends = trends
+        updatedReflection.week = week
+        
+        let authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMTQkSk8vbHB4RjZKa1MwUVhleFNwMmZHdS9Pc1lvU01URU1TZnF4YURac2VVclFyUkdiR2FiVlciLCJpYXQiOjE1NDk0MjAwODcsImV4cCI6MTU0OTc4MDA4N30.9Ke9kzZ9kCZA97ds-AQZuEm-f_N38rIODkzqA9tkGYk" //provided by Backend
+        
+        let url = baseURL.appendingPathComponent("reflections").appendingPathComponent(String(reflection.id))
+        
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = httpMethod.put.rawValue
+        urlRequest.setValue(authToken, forHTTPHeaderField: "Authorization")
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let reflection: [String: Any] = ["journalEntry": updatedReflection.journalEntry, "fk": 1, "week": updatedReflection.week, "insights": updatedReflection.insights, "trends": updatedReflection.trends, "surprises": updatedReflection.surprises]
+        let jsonTodo: Data
+        do {
+            jsonTodo = try JSONSerialization.data(withJSONObject: reflection, options: [])
+            urlRequest.httpBody = jsonTodo
+        } catch {
+            print("Error: cannot create JSON from todo")
+            return
+        }
+        
+        let dataTask = URLSession.shared.dataTask(with: urlRequest) { (_, _, error) in
+            if let error = error {
+                NSLog("error trying to PUT data: \(error)")
+                completion(error)
+                return
+            }
+            self.reflections[index] = updatedReflection
+            completion(nil)
+        }
+        dataTask.resume()
     }
     
     func fetchReflections(completion: @escaping (Error?) -> Void) {
@@ -232,14 +262,14 @@ class JournalController {
         let authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMTQkSk8vbHB4RjZKa1MwUVhleFNwMmZHdS9Pc1lvU01URU1TZnF4YURac2VVclFyUkdiR2FiVlciLCJpYXQiOjE1NDk0MjAwODcsImV4cCI6MTU0OTc4MDA4N30.9Ke9kzZ9kCZA97ds-AQZuEm-f_N38rIODkzqA9tkGYk" //provided by Backend
         
         
-        let url = baseURL.appendingPathComponent("reflections")
+        let url = baseURL.appendingPathComponent("reflections").appendingPathComponent(String(reflection.id))
         
         var request = URLRequest(url: url)
         request.httpMethod = httpMethod.delete.rawValue
         request.addValue(authToken, forHTTPHeaderField: "Authorization") // authToken here will be the authorization
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        //request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        do {
+        /*do {
             let encoder = JSONEncoder()
             let encodedActivity = try encoder.encode(reflection)
             request.httpBody = encodedActivity
@@ -247,7 +277,7 @@ class JournalController {
             NSLog("error encoding activity: \(error)")
             completion(error)
             return
-        }
+        }*/
         
         let dataTask = URLSession.shared.dataTask(with: request) { (_, _, error) in
             if let error = error {

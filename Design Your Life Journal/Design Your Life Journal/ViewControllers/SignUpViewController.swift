@@ -78,27 +78,27 @@ class SignUpViewController: UIViewController {
     
     func setTheme() {
         title = "Register"
-        nameTextField.backgroundColor = UIColor.lightGray.withAlphaComponent(0.15)
+        nameTextField.backgroundColor = UIColor.lightGray.withAlphaComponent(0.25)
         nameTextField.textColor = .darkBlue
         nameTextField.layer.cornerRadius = 4
         nameTextField.font = Appearance.montserratRegularFont(with: .body, pointSize: 15)
         
-        emailTextField.backgroundColor = UIColor.lightGray.withAlphaComponent(0.15)
+        emailTextField.backgroundColor = UIColor.lightGray.withAlphaComponent(0.25)
         emailTextField.textColor = .darkBlue
         emailTextField.layer.cornerRadius = 4
         emailTextField.font = Appearance.montserratRegularFont(with: .body, pointSize: 15)
         
-        usernameTextField.backgroundColor = UIColor.lightGray.withAlphaComponent(0.15)
+        usernameTextField.backgroundColor = UIColor.lightGray.withAlphaComponent(0.25)
         usernameTextField.textColor = .darkBlue
         usernameTextField.layer.cornerRadius = 4
         usernameTextField.font = Appearance.montserratRegularFont(with: .body, pointSize: 15)
         
-        userPasswordTextField.backgroundColor = UIColor.lightGray.withAlphaComponent(0.15)
+        userPasswordTextField.backgroundColor = UIColor.lightGray.withAlphaComponent(0.25)
         userPasswordTextField.textColor = .darkBlue
         userPasswordTextField.layer.cornerRadius = 4
         userPasswordTextField.font = Appearance.montserratRegularFont(with: .body, pointSize: 15)
         
-        repeatPasswordTextField.backgroundColor = UIColor.lightGray.withAlphaComponent(0.15)
+        repeatPasswordTextField.backgroundColor = UIColor.lightGray.withAlphaComponent(0.25)
         repeatPasswordTextField.textColor = .darkBlue
         repeatPasswordTextField.layer.cornerRadius = 4
         repeatPasswordTextField.font = Appearance.montserratRegularFont(with: .body, pointSize: 15)
