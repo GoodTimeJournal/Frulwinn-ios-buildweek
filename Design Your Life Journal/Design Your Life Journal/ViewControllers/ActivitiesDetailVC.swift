@@ -92,6 +92,47 @@ class ActivitiesDetailVC: UIViewController {
     
     func setTheme() {
         //textfield
+        engagementView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.15)
+        engagementLabel.textColor = .darkBlue
+        engagementTextField.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+        engagementTextField.textColor = .skyBlue
+        engagementTextField.font = Appearance.montserratRegularFont(with: .body, pointSize: 15)
+        
+        enjoymentView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.15)
+        enjoymentLabel.textColor = .darkBlue
+        enjoymentTextField.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+        enjoymentTextField.textColor = .skyBlue
+        enjoymentTextField.font = Appearance.montserratRegularFont(with: .body, pointSize: 15)
+        
+        energyView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.15)
+        energyLabel.textColor = .darkBlue
+        energyTextField.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+        energyTextField.textColor = .skyBlue
+        energyTextField.font = Appearance.montserratRegularFont(with: .body, pointSize: 15)
+        
+        activityTextField.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
+        activityTextField.textColor = .skyBlue
+        activityTextField.font = Appearance.montserratRegularFont(with: .body, pointSize: 15)
+        
+        ratingView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.15)
+        ratingLabel.textColor = .darkBlue
+        ratingLabel.font = Appearance.montserratRegularFont(with: .body, pointSize: 10)
+        
+        oneLabel.font = Appearance.montserratRegularFont(with: .body, pointSize: 10)
+        oneLabel.textColor = .darkBlue
+        
+        twoLabel.font = Appearance.montserratRegularFont(with: .body, pointSize: 10)
+        twoLabel.textColor = .darkBlue
+        
+        threeLabel.font = Appearance.montserratRegularFont(with: .body, pointSize: 10)
+        threeLabel.textColor = .darkBlue
+        
+        fourLabel.font = Appearance.montserratRegularFont(with: .body, pointSize: 10)
+        fourLabel.textColor = .darkBlue
+        
+        fiveLabel.font = Appearance.montserratRegularFont(with: .body, pointSize: 10)
+        fiveLabel.textColor = .darkBlue
+        
         view.backgroundColor = .white
     }
 }

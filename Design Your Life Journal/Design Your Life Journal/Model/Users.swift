@@ -26,15 +26,19 @@ struct Activity: Codable, Equatable {
     }
 }
 
+typealias Reflections = [Reflection]
+
 struct Reflection: Codable, Equatable {
     var journalEntry: String
-    let timestamp: Date
-    var suprises: String
+    let timestamp: String?
+    var surprises: String
     var insights: String
     var trends: String
-    let id: String
+    var week: String
+    let fk: Int
+    var id: Int
     
-    init(journalEntry: String, timestamp: Date = Date(), surprises: String, insights: String, trends: String, id: String = UUID().uuidString) {
-        (self.journalEntry, self.timestamp, self.suprises, self.insights, self.trends, self.id) = (journalEntry, timestamp, surprises, insights, trends, id)
+    init(journalEntry: String, timestamp: String?, surprises: String, insights: String, trends: String, week: String, fk: Int = UUID().hashValue, id: Int) {
+        (self.journalEntry, self.timestamp, self.surprises, self.insights, self.trends, self.week, self.fk, self.id) = (journalEntry, timestamp, surprises, insights, trends, week, fk, id)
     }
 }

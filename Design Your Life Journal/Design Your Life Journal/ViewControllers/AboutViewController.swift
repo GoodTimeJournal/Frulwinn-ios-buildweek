@@ -7,7 +7,6 @@ class AboutViewController: UIViewController {
     //MARK: - Outlets
     @IBOutlet weak var aboutLabel: UILabel!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setTheme()
@@ -15,6 +14,6 @@ class AboutViewController: UIViewController {
     
     func setTheme() {
         //textfield
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(patternImage: UIImage(named: "cellWithPlant")!)
     }
 }

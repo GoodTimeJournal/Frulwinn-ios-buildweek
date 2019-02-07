@@ -8,6 +8,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     
+    @IBOutlet weak var signup: UIButton!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var userPasswordTextField: UITextField!
     @IBOutlet weak var repeatPasswordTextField: UITextField!
@@ -54,7 +55,7 @@ class SignUpViewController: UIViewController {
                 do {
                     let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
                     if let parseJSON = json {
-                        let userId = parseJSON["userId"] as? String
+                        _ = parseJSON["userId"] as? String
 
                     }
                 } catch {
@@ -68,19 +69,46 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setTheme()
+        nameTextField.text = ""
+        emailTextField.text = ""
         usernameTextField.text = ""
         userPasswordTextField.text = ""
         repeatPasswordTextField.text = ""
     }
     
     func setTheme() {
-        //textfield
+        title = "Register"
+        nameTextField.backgroundColor = UIColor.lightGray.withAlphaComponent(0.15)
+        nameTextField.textColor = .darkBlue
+        nameTextField.layer.cornerRadius = 4
+        nameTextField.font = Appearance.montserratRegularFont(with: .body, pointSize: 15)
+        
+        emailTextField.backgroundColor = UIColor.lightGray.withAlphaComponent(0.15)
+        emailTextField.textColor = .darkBlue
+        emailTextField.layer.cornerRadius = 4
+        emailTextField.font = Appearance.montserratRegularFont(with: .body, pointSize: 15)
+        
+        usernameTextField.backgroundColor = UIColor.lightGray.withAlphaComponent(0.15)
+        usernameTextField.textColor = .darkBlue
+        usernameTextField.layer.cornerRadius = 4
+        usernameTextField.font = Appearance.montserratRegularFont(with: .body, pointSize: 15)
+        
+        userPasswordTextField.backgroundColor = UIColor.lightGray.withAlphaComponent(0.15)
+        userPasswordTextField.textColor = .darkBlue
+        userPasswordTextField.layer.cornerRadius = 4
+        userPasswordTextField.font = Appearance.montserratRegularFont(with: .body, pointSize: 15)
+        
+        repeatPasswordTextField.backgroundColor = UIColor.lightGray.withAlphaComponent(0.15)
+        repeatPasswordTextField.textColor = .darkBlue
+        repeatPasswordTextField.layer.cornerRadius = 4
+        repeatPasswordTextField.font = Appearance.montserratRegularFont(with: .body, pointSize: 15)
+        
+        Appearance.style(button: signup)
         view.backgroundColor = .white
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // if information is complete segue
-        guard let destination = segue.destination as? LoginViewController else { return }
-
+//        guard let destination = segue.destination as? LoginViewController else { return }
+        guard segue.destination is LoginViewController else { return }
     }
 }

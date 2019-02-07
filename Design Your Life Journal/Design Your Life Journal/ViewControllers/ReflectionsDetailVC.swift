@@ -14,18 +14,20 @@ class ReflectionsDetailVC: UIViewController {
     
     //MARK: - Outlets
     @IBOutlet weak var journalEntryTextField: UITextField!
+    @IBOutlet weak var weekTextField: UITextField!
     @IBOutlet weak var surprisesTextView: UITextView!
     @IBOutlet weak var insightsTextView: UITextView!
     @IBOutlet weak var trendsTextView: UITextView!
     
     @IBAction func save(_ sender: Any) {
         guard let journalEntry = journalEntryTextField.text, !journalEntry.isEmpty,
-        let surprises = surprisesTextView.text, !surprises.isEmpty,
+            let surprises = surprisesTextView.text, !surprises.isEmpty,
             let insights = insightsTextView.text, !insights.isEmpty,
-            let trends = trendsTextView.text, !trends.isEmpty else { return }
-        print("hello")
+            let trends = trendsTextView.text, !trends.isEmpty,
+            let week = weekTextField.text, !week.isEmpty else { return }
+        //print("hello")
         if let reflection = reflection {
-            journalController?.updateReflection(reflection: reflection, journalEntry: journalEntry, surprises: surprises, insights: insights, trends: trends, completion: { (error) in
+            journalController?.updateReflection(reflection: reflection, journalEntry: journalEntry, surprises: surprises, insights: insights, trends: trends, week: week, fk: 1, completion: { (error) in
                 if let error = error {
                     NSLog("Could not update reflection: \(error)")
                     return
@@ -35,7 +37,7 @@ class ReflectionsDetailVC: UIViewController {
                 }
             })
         } else {
-            journalController?.createReflection(journalEntry: journalEntry, surprises: surprises, insights: insights, trends: trends, completion: { (error) in
+            journalController?.createReflection(journalEntry: journalEntry, surprises: surprises, insights: insights, trends: trends, week: week, fk: 1, id: 2, completion: { (error) in
                 if let error = error {
                     NSLog("Could not create reflection: \(error)")
                     return
@@ -60,7 +62,7 @@ class ReflectionsDetailVC: UIViewController {
                 return
             }
             title = reflection.journalEntry
-            surprisesTextView.text = reflection.suprises
+            surprisesTextView.text = reflection.surprises
             insightsTextView.text = reflection.insights
             trendsTextView.text = reflection.trends
         }
@@ -68,9 +70,27 @@ class ReflectionsDetailVC: UIViewController {
     
     func setTheme() {
         //textfield
-        insightsTextView.backgroundColor = .lightGray
-        surprisesTextView.backgroundColor = .lightGray
-        trendsTextView.backgroundColor = .lightGray
+        journalEntryTextField.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
+        journalEntryTextField.textColor = .skyBlue
+        journalEntryTextField.font = Appearance.montserratRegularFont(with: .body, pointSize: 15)
+        
+        weekTextField.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
+        weekTextField.textColor = .skyBlue
+        weekTextField.font = Appearance.montserratRegularFont(with: .body, pointSize: 15)
+        
+        insightsTextView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
+        insightsTextView.textColor = .skyBlue
+        insightsTextView.font = Appearance.montserratRegularFont(with: .body, pointSize: 15)
+        
+        surprisesTextView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
+        surprisesTextView.textColor = .skyBlue
+        surprisesTextView.font = Appearance.montserratRegularFont(with: .body, pointSize: 15)
+        
+        trendsTextView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
+        trendsTextView.textColor = .skyBlue
+        trendsTextView.font = Appearance.montserratRegularFont(with: .body, pointSize: 15)
+        
         view.backgroundColor = .white
     }
 }
+

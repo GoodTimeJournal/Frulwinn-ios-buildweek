@@ -1,10 +1,4 @@
-//
-//  ReflectionsTableViewController.swift
-//  Design Your Life Journal
-//
-//  Created by Lambda_School_Loaner_34 on 2/4/19.
 //  Copyright © 2019 Frulwinn. All rights reserved.
-//
 
 import UIKit
 
@@ -30,6 +24,7 @@ class ReflectionsTableViewController: UITableViewController {
     
     func setTheme() {
         //textfield
+        tableView.separatorColor = .lightGray
         view.backgroundColor = .white
     }
 
@@ -43,12 +38,16 @@ class ReflectionsTableViewController: UITableViewController {
 
         let reflection = journalController.reflections[indexPath.row]
         cell.reflection = reflection
-        
+        style(cell: cell)
         return cell
     }
     
     func style(cell: UITableViewCell) {
-        
+        cell.textLabel?.font = Appearance.montserratRegularFont(with: .caption1, pointSize: 24)
+        cell.textLabel?.adjustsFontForContentSizeCategory = true
+        cell.textLabel?.textColor = .skyBlue
+        cell.textLabel?.backgroundColor = .clear
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none
     }
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

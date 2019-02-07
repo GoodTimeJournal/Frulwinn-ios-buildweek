@@ -17,17 +17,24 @@ enum Appearance {
     static func setAppearance() {
         //navigationbar
         
-        UINavigationBar.appearance().barTintColor = .lightGray
-        UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.gray, NSAttributedString.Key.font: UIFont(name: "Montserrat-Regular", size: 30)!]
+        UINavigationBar.appearance().barTintColor = .skyBlue
+        UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont(name: "Montserrat-Regular", size: 21)!]
         
         //bar button item
-        UIBarButtonItem.appearance().tintColor = .gray
-        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font : UIFont(name: "Montserrat-Regular", size: 14)!, NSAttributedString.Key.foregroundColor : UIColor.gray], for: .normal)
+        UIBarButtonItem.appearance().tintColor = .white
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font : UIFont(name: "Montserrat-Regular", size: 15)!, NSAttributedString.Key.foregroundColor : UIColor.white], for: .normal)
         
         //labels
-        UILabel.appearance().textColor = .gray
-        UILabel.appearance().font = UIFont(name: "Montserrat-Regular", size: 16)
+        UILabel.appearance().textColor = .darkBlue
+        UILabel.appearance().font = UIFont(name: "Montserrat-Regular", size: 15)
         
     }
-  
+    
+    static func style(button: UIButton) {
+        button.titleLabel?.font = Appearance.montserratRegularFont(with: .body, pointSize: 15)
+        button.titleLabel?.adjustsFontForContentSizeCategory = true
+        button.setTitleColor(.skyBlue, for: .normal)
+        button.backgroundColor = UIColor.lightGray.withAlphaComponent(0.15)
+        button.layer.cornerRadius = 8
+    }
 }

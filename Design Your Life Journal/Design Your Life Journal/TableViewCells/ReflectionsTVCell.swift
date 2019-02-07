@@ -18,11 +18,11 @@ class ReflectionsTVCell: UITableViewCell {
     private func updateViews() {
         guard let reflection = reflection else { return }
         journalEntryLabel.text = reflection.journalEntry
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "M/d/yy, h:mm a"
-        
-        let timestampFormatted = dateFormatter.string(from: reflection.timestamp)
-        timestampLabel.text = timestampFormatted
+        timestampLabel.text = reflection.timestamp
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "M/d/yy, h:mm a"
+//
+//        let timestampFormatted = dateFormatter.string(from: reflection.timestamp)
+//        timestampLabel.text = timestampFormatted
     }
 }
