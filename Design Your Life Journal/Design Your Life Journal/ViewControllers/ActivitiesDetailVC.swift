@@ -79,7 +79,7 @@ class ActivitiesDetailVC: UIViewController {
     func updateViews() {
         if isViewLoaded {
             guard let activity = activity else {
-                title = "create activity log"
+                title = "create activity"
                 return
             }
             title = activity.name

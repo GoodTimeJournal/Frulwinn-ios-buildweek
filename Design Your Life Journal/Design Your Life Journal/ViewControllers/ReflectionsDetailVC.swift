@@ -58,7 +58,7 @@ class ReflectionsDetailVC: UIViewController {
     func updateViews() {
         if isViewLoaded {
             guard let reflection = reflection else {
-                title = "create reflection log"
+                title = "create reflection"
                 return
             }
             title = reflection.journalEntry
@@ -72,25 +72,34 @@ class ReflectionsDetailVC: UIViewController {
         //textfield
         journalEntryTextField.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
         journalEntryTextField.textColor = .skyBlue
+        journalEntryTextField.borderStyle = .none
         journalEntryTextField.font = Appearance.montserratRegularFont(with: .body, pointSize: 15)
         
         weekTextField.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
         weekTextField.textColor = .skyBlue
+        weekTextField.borderStyle = .none
         weekTextField.font = Appearance.montserratRegularFont(with: .body, pointSize: 15)
         
-        insightsTextView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
-        insightsTextView.textColor = .skyBlue
+        insightsTextView.backgroundColor = .skyBlue
+        insightsTextView.textColor = .white
         insightsTextView.font = Appearance.montserratRegularFont(with: .body, pointSize: 15)
         
-        surprisesTextView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
-        surprisesTextView.textColor = .skyBlue
+        surprisesTextView.backgroundColor = .skyBlue
+        surprisesTextView.textColor = .white
         surprisesTextView.font = Appearance.montserratRegularFont(with: .body, pointSize: 15)
         
-        trendsTextView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
-        trendsTextView.textColor = .skyBlue
+        trendsTextView.backgroundColor = .skyBlue
+        trendsTextView.textColor = .white
         trendsTextView.font = Appearance.montserratRegularFont(with: .body, pointSize: 15)
         
         view.backgroundColor = .white
     }
 }
 
+//energyView.backgroundColor = UIColor.skyBlue
+//energyLabel.textColor = .white
+//energyTextField.layer.cornerRadius = 5
+//energyTextField.backgroundColor = UIColor.white.withAlphaComponent(0.25)
+//energyTextField.borderStyle = .none
+//energyTextField.textColor = .white
+//energyTextField.font = Appearance.montserratRegularFont(with: .body, pointSize: 15)
