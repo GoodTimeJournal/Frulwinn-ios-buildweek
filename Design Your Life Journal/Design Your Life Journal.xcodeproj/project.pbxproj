@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		48159106220A6B71008067E1 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 48159104220A6B71008067E1 /* Montserrat-Regular.ttf */; };
+		48159107220A6B71008067E1 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 48159105220A6B71008067E1 /* Montserrat-Bold.ttf */; };
+		48159109220A6BD5008067E1 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48159108220A6BD5008067E1 /* Appearance.swift */; };
+		4815910B220A7BF2008067E1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4815910A220A7BF2008067E1 /* LoginViewController.swift */; };
 		481FAC4C220520B9004C7337 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481FAC4B220520B9004C7337 /* AppDelegate.swift */; };
-		481FAC4E220520B9004C7337 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481FAC4D220520B9004C7337 /* SignUpViewController.swift */; };
+		481FAC4E220520B9004C7337 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481FAC4D220520B9004C7337 /* SignInViewController.swift */; };
 		481FAC51220520B9004C7337 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 481FAC4F220520B9004C7337 /* Main.storyboard */; };
 		481FAC53220520BB004C7337 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 481FAC52220520BB004C7337 /* Assets.xcassets */; };
 		481FAC56220520BB004C7337 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 481FAC54220520BB004C7337 /* LaunchScreen.storyboard */; };
@@ -22,12 +26,17 @@
 		481FAC712208F113004C7337 /* ActivitiesTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481FAC702208F113004C7337 /* ActivitiesTVCell.swift */; };
 		481FAC732208F12C004C7337 /* ReflectionsTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481FAC722208F12C004C7337 /* ReflectionsTVCell.swift */; };
 		481FAC772208FB80004C7337 /* JournalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481FAC762208FB80004C7337 /* JournalController.swift */; };
+		481FAC79220A2D46004C7337 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481FAC78220A2D45004C7337 /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		48159104220A6B71008067E1 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		48159105220A6B71008067E1 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		48159108220A6BD5008067E1 /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
+		4815910A220A7BF2008067E1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		481FAC48220520B9004C7337 /* Design Your Life Journal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Design Your Life Journal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		481FAC4B220520B9004C7337 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		481FAC4D220520B9004C7337 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		481FAC4D220520B9004C7337 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		481FAC50220520B9004C7337 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		481FAC52220520BB004C7337 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		481FAC55220520BB004C7337 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -42,6 +51,7 @@
 		481FAC702208F113004C7337 /* ActivitiesTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesTVCell.swift; sourceTree = "<group>"; };
 		481FAC722208F12C004C7337 /* ReflectionsTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionsTVCell.swift; sourceTree = "<group>"; };
 		481FAC762208FB80004C7337 /* JournalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalController.swift; sourceTree = "<group>"; };
+		481FAC78220A2D45004C7337 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +65,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4815910C220A7F45008067E1 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				481FAC702208F113004C7337 /* ActivitiesTVCell.swift */,
+				481FAC722208F12C004C7337 /* ReflectionsTVCell.swift */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
 		481FAC3F220520B9004C7337 = {
 			isa = PBXGroup;
 			children = (
@@ -77,28 +96,31 @@
 				481FAC4B220520B9004C7337 /* AppDelegate.swift */,
 				481FAC632208AEAB004C7337 /* Helpers */,
 				481FAC602208AE85004C7337 /* Model */,
-				481FAC5D2208AE62004C7337 /* Controllers */,
+				4815910C220A7F45008067E1 /* TableViewCells */,
+				481FAC5D2208AE62004C7337 /* ViewControllers */,
 				481FAC4F220520B9004C7337 /* Main.storyboard */,
 				481FAC52220520BB004C7337 /* Assets.xcassets */,
+				48159105220A6B71008067E1 /* Montserrat-Bold.ttf */,
+				48159104220A6B71008067E1 /* Montserrat-Regular.ttf */,
 				481FAC54220520BB004C7337 /* LaunchScreen.storyboard */,
 				481FAC57220520BB004C7337 /* Info.plist */,
 			);
 			path = "Design Your Life Journal";
 			sourceTree = "<group>";
 		};
-		481FAC5D2208AE62004C7337 /* Controllers */ = {
+		481FAC5D2208AE62004C7337 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				481FAC4D220520B9004C7337 /* SignUpViewController.swift */,
+				481FAC4D220520B9004C7337 /* SignInViewController.swift */,
+				481FAC78220A2D45004C7337 /* SignUpViewController.swift */,
+				4815910A220A7BF2008067E1 /* LoginViewController.swift */,
 				481FAC662208F06A004C7337 /* AboutViewController.swift */,
-				481FAC702208F113004C7337 /* ActivitiesTVCell.swift */,
 				481FAC682208F097004C7337 /* ActivitiesTableViewController.swift */,
 				481FAC6E2208F0EE004C7337 /* ActivitiesDetailVC.swift */,
-				481FAC722208F12C004C7337 /* ReflectionsTVCell.swift */,
 				481FAC6A2208F0AC004C7337 /* ReflectionsTableViewController.swift */,
 				481FAC6C2208F0D2004C7337 /* ReflectionsDetailVC.swift */,
 			);
-			path = Controllers;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		481FAC602208AE85004C7337 /* Model */ = {
@@ -114,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				481FAC612208AEA3004C7337 /* Color Convenience.swift */,
+				48159108220A6BD5008067E1 /* Appearance.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -176,6 +199,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48159107220A6B71008067E1 /* Montserrat-Bold.ttf in Resources */,
+				48159106220A6B71008067E1 /* Montserrat-Regular.ttf in Resources */,
 				481FAC56220520BB004C7337 /* LaunchScreen.storyboard in Resources */,
 				481FAC53220520BB004C7337 /* Assets.xcassets in Resources */,
 				481FAC51220520B9004C7337 /* Main.storyboard in Resources */,
@@ -196,9 +221,12 @@
 				481FAC6D2208F0D2004C7337 /* ReflectionsDetailVC.swift in Sources */,
 				481FAC6B2208F0AC004C7337 /* ReflectionsTableViewController.swift in Sources */,
 				481FAC6F2208F0EE004C7337 /* ActivitiesDetailVC.swift in Sources */,
-				481FAC4E220520B9004C7337 /* SignUpViewController.swift in Sources */,
+				481FAC4E220520B9004C7337 /* SignInViewController.swift in Sources */,
 				481FAC712208F113004C7337 /* ActivitiesTVCell.swift in Sources */,
+				48159109220A6BD5008067E1 /* Appearance.swift in Sources */,
 				481FAC622208AEA3004C7337 /* Color Convenience.swift in Sources */,
+				4815910B220A7BF2008067E1 /* LoginViewController.swift in Sources */,
+				481FAC79220A2D46004C7337 /* SignUpViewController.swift in Sources */,
 				481FAC4C220520B9004C7337 /* AppDelegate.swift in Sources */,
 				481FAC772208FB80004C7337 /* JournalController.swift in Sources */,
 			);

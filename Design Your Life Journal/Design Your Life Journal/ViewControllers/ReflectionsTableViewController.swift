@@ -8,30 +8,15 @@
 
 import UIKit
 
-class ReflectionsTableViewController: UITableViewController, UISearchBarDelegate {
+class ReflectionsTableViewController: UITableViewController {
     
     //MARK: - Properties
     let journalController = JournalController()
     
-    //MARK: - Outlets
-    @IBOutlet weak var searchbar: UISearchBar!
-    
-    @IBAction func add(_ sender: Any) {
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let searchTerm = searchBar.text, !searchTerm.isEmpty else { return }
-        
-        journalController.searchReflection(searchTerm: searchTerm) { (_) in
-            
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
-    }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        setTheme()
         journalController.fetchReflections { (error) in
             if let error = error {
                 NSLog("Could not fetch data from reflections: \(error)")
@@ -41,6 +26,11 @@ class ReflectionsTableViewController: UITableViewController, UISearchBarDelegate
                 self.tableView.reloadData()
             }
         }
+    }
+    
+    func setTheme() {
+        //textfield
+        view.backgroundColor = .white
     }
 
     // MARK: - Table view data source
@@ -55,6 +45,10 @@ class ReflectionsTableViewController: UITableViewController, UISearchBarDelegate
         cell.reflection = reflection
         
         return cell
+    }
+    
+    func style(cell: UITableViewCell) {
+        
     }
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

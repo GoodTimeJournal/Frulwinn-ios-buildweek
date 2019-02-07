@@ -10,6 +10,11 @@ class AboutViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setTheme()
+    }
+    
+    func setTheme() {
+        //textfield
+        view.backgroundColor = .white
     }
 }

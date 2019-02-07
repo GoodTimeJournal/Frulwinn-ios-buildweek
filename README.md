@@ -40,3 +40,7 @@ Front End Architect 1 - Alex King
 Front End Architect 2 - Brandon Lent
 Back End Architect 3 - Travis Russell
 Scrum Master - Eva Li
+
+
+Requirements
+MVP feature 

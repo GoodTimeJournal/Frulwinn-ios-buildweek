@@ -16,13 +16,16 @@ class ReflectionsDetailVC: UIViewController {
     @IBOutlet weak var journalEntryTextField: UITextField!
     @IBOutlet weak var surprisesTextView: UITextView!
     @IBOutlet weak var insightsTextView: UITextView!
+    @IBOutlet weak var trendsTextView: UITextView!
+    
     @IBAction func save(_ sender: Any) {
         guard let journalEntry = journalEntryTextField.text, !journalEntry.isEmpty,
         let surprises = surprisesTextView.text, !surprises.isEmpty,
-            let insights = insightsTextView.text, !insights.isEmpty else { return }
-        
+            let insights = insightsTextView.text, !insights.isEmpty,
+            let trends = trendsTextView.text, !trends.isEmpty else { return }
+        print("hello")
         if let reflection = reflection {
-            journalController?.updateReflection(reflection: reflection, journalEntry: journalEntry, surprises: surprises, insights: insights, completion: { (error) in
+            journalController?.updateReflection(reflection: reflection, journalEntry: journalEntry, surprises: surprises, insights: insights, trends: trends, completion: { (error) in
                 if let error = error {
                     NSLog("Could not update reflection: \(error)")
                     return
@@ -32,7 +35,7 @@ class ReflectionsDetailVC: UIViewController {
                 }
             })
         } else {
-            journalController?.createReflection(journalEntry: journalEntry, surprises: surprises, insights: insights, completion: { (error) in
+            journalController?.createReflection(journalEntry: journalEntry, surprises: surprises, insights: insights, trends: trends, completion: { (error) in
                 if let error = error {
                     NSLog("Could not create reflection: \(error)")
                     return
@@ -46,6 +49,7 @@ class ReflectionsDetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setTheme()
         updateViews()
     }
     
@@ -58,6 +62,15 @@ class ReflectionsDetailVC: UIViewController {
             title = reflection.journalEntry
             surprisesTextView.text = reflection.suprises
             insightsTextView.text = reflection.insights
+            trendsTextView.text = reflection.trends
         }
+    }
+    
+    func setTheme() {
+        //textfield
+        insightsTextView.backgroundColor = .lightGray
+        surprisesTextView.backgroundColor = .lightGray
+        trendsTextView.backgroundColor = .lightGray
+        view.backgroundColor = .white
     }
 }
