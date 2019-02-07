@@ -14,19 +14,21 @@ struct Users: Codable {
 }
 
 struct Activity: Codable, Equatable {
-    var name: String //title
+    var name: String
     var engagement: Int
     var enjoymentRating: Int
     var energyLevel: Int
-    let timestamp: Date
+    let timestamp: String?
     let fk: Int
+    var id: Int
     
-    init(name: String, engagement: Int, enjoymentRating: Int, energyLevel: Int, timestamp: Date = Date(), fk: Int = UUID().hashValue) {
-        (self.name, self.engagement, self.enjoymentRating, self.energyLevel, self.timestamp, self.fk) = (name, engagement, enjoymentRating, energyLevel, timestamp, fk)
+    init(name: String, engagement: Int, enjoymentRating: Int, energyLevel: Int, timestamp: String?, fk: Int = UUID().hashValue, id: Int) {
+        (self.name, self.engagement, self.enjoymentRating, self.energyLevel, self.timestamp, self.fk, self.id) = (name, engagement, enjoymentRating, energyLevel, timestamp, fk, id)
     }
 }
 
 typealias Reflections = [Reflection]
+typealias Activities = [Activity]
 
 struct Reflection: Codable, Equatable {
     var journalEntry: String

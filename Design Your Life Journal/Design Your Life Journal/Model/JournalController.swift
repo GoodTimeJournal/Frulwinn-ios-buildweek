@@ -53,7 +53,8 @@ class JournalController {
     
     func createActivity(name: String, engagement: Int, enjoymentRating: Int, energyLevel: Int, fk: Int, completion: @escaping (Error?) -> Void) {
         
-        let activity = Activity(name: name, engagement: engagement, enjoymentRating: enjoymentRating, energyLevel: energyLevel, fk: fk)
+        let activity = Activity(name: name, engagement: engagement, enjoymentRating: enjoymentRating, energyLevel: energyLevel, timestamp: nil, fk: 1, id: Int(arc4random()))
+        
         postActivity(activity: activity, completion: completion)
     }
     
@@ -78,7 +79,7 @@ class JournalController {
         request.addValue(authToken, forHTTPHeaderField: "Authorization")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        let dataTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
+        let dataTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
             // print(response)
             if let error = error {
                 NSLog("unable to decode activity: \(error)")
@@ -92,17 +93,19 @@ class JournalController {
             }
             do {
                 let jsonDecoder = JSONDecoder()
-                let reflections = try jsonDecoder.decode([Reflection].self, from: data)
-                self.reflections = reflections
-                completion(nil)
+                let activities = try jsonDecoder.decode(Activities.self, from: data)
+                self.activities = activities
+               
             } catch {
                 NSLog("could not decode activity data")
                 completion(error)
                 return
             }
+            completion(nil)
         }
         dataTask.resume()
     }
+    
     
     func deleteActivity(activity: Activity, completion: @escaping (Error?) -> Void) {
         let authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMTQkSk8vbHB4RjZKa1MwUVhleFNwMmZHdS9Pc1lvU01URU1TZnF4YURac2VVclFyUkdiR2FiVlciLCJpYXQiOjE1NDk0MjAwODcsImV4cCI6MTU0OTc4MDA4N30.9Ke9kzZ9kCZA97ds-AQZuEm-f_N38rIODkzqA9tkGYk" //provided by Backend
@@ -111,9 +114,8 @@ class JournalController {
         
         var request = URLRequest(url: url)
         request.httpMethod = httpMethod.delete.rawValue
-        request.addValue(authToken, forHTTPHeaderField: "Authorization") // authToken here will be the authorization
+        request.addValue(authToken, forHTTPHeaderField: "Authorization")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
         
         do {
             let encoder = JSONEncoder()
@@ -217,7 +219,7 @@ class JournalController {
                 self.reflections = reflections
     
             } catch {
-                NSLog("could not decode activity data")
+                NSLog("could not decode reflections data")
                 completion(error)
                 return
             }
