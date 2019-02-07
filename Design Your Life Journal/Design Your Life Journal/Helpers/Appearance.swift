@@ -25,8 +25,8 @@ enum Appearance {
         UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font : UIFont(name: "Montserrat-Regular", size: 13)!, NSAttributedString.Key.foregroundColor : UIColor.white], for: .normal)
         
         //labels
-        UILabel.appearance().textColor = .darkBlue
-        UILabel.appearance().font = UIFont(name: "Montserrat-Regular", size: 15)
+        //UILabel.appearance().textColor = .darkBlue
+        //UILabel.appearance().font = UIFont(name: "Montserrat-Regular", size: 15)
         
     }
     

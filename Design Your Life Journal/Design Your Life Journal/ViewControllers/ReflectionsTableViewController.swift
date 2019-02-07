@@ -24,7 +24,7 @@ class ReflectionsTableViewController: UITableViewController {
     
     func setTheme() {
         //textfield
-        tableView.separatorColor = .lightGray
+        tableView.separatorColor = .skyBlue
         view.backgroundColor = .white
     }
 

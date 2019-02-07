@@ -19,10 +19,11 @@ class ReflectionsTVCell: UITableViewCell {
         guard let reflection = reflection else { return }
         journalEntryLabel.text = reflection.journalEntry
         timestampLabel.text = reflection.timestamp
+        
 //        let dateFormatter = DateFormatter()
 //        dateFormatter.dateFormat = "M/d/yy, h:mm a"
 //
-//        let timestampFormatted = dateFormatter.string(from: reflection.timestamp)
+//        let timestampFormatted = dateFormatter.string(from: reflection.timestamp : Date = Date())
 //        timestampLabel.text = timestampFormatted
     }
 }

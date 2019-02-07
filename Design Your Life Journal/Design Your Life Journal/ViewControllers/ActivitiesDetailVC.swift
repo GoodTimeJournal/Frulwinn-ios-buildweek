@@ -92,45 +92,53 @@ class ActivitiesDetailVC: UIViewController {
     
     func setTheme() {
         //textfield
-        engagementView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.15)
-        engagementLabel.textColor = .darkBlue
-        engagementTextField.backgroundColor = UIColor.white.withAlphaComponent(0.5)
-        engagementTextField.textColor = .skyBlue
+        engagementView.backgroundColor = UIColor.skyBlue
+        engagementLabel.textColor = .white
+        engagementTextField.layer.cornerRadius = 5
+        engagementTextField.backgroundColor = UIColor.white.withAlphaComponent(0.25)
+        engagementTextField.borderStyle = .none
+        engagementTextField.textColor = .white
         engagementTextField.font = Appearance.montserratRegularFont(with: .body, pointSize: 15)
         
-        enjoymentView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.15)
-        enjoymentLabel.textColor = .darkBlue
-        enjoymentTextField.backgroundColor = UIColor.white.withAlphaComponent(0.5)
-        enjoymentTextField.textColor = .skyBlue
+        enjoymentView.backgroundColor = UIColor.skyBlue
+        enjoymentLabel.textColor = .white
+        enjoymentTextField.layer.cornerRadius = 5
+        enjoymentTextField.backgroundColor = UIColor.white.withAlphaComponent(0.25)
+        enjoymentTextField.borderStyle = .none
+        enjoymentTextField.textColor = .white
         enjoymentTextField.font = Appearance.montserratRegularFont(with: .body, pointSize: 15)
         
-        energyView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.15)
-        energyLabel.textColor = .darkBlue
-        energyTextField.backgroundColor = UIColor.white.withAlphaComponent(0.5)
-        energyTextField.textColor = .skyBlue
+        energyView.backgroundColor = UIColor.skyBlue
+        energyLabel.textColor = .white
+        energyTextField.layer.cornerRadius = 5
+        energyTextField.backgroundColor = UIColor.white.withAlphaComponent(0.25)
+        energyTextField.borderStyle = .none
+        energyTextField.textColor = .white
         energyTextField.font = Appearance.montserratRegularFont(with: .body, pointSize: 15)
         
-        activityTextField.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
+        activityTextField.backgroundColor = UIColor.lightGray.withAlphaComponent(0.25)
         activityTextField.textColor = .skyBlue
+        activityTextField.layer.cornerRadius = 5
+        activityTextField.borderStyle = .none
         activityTextField.font = Appearance.montserratRegularFont(with: .body, pointSize: 15)
         
-        ratingView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.15)
-        ratingLabel.textColor = .darkBlue
-        ratingLabel.font = Appearance.montserratRegularFont(with: .body, pointSize: 10)
+        ratingView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.25)
+        ratingLabel.textColor = .skyBlue
+        ratingLabel.font = Appearance.montserratRegularFont(with: .body, pointSize: 12)
         
-        oneLabel.font = Appearance.montserratRegularFont(with: .body, pointSize: 10)
+        oneLabel.font = Appearance.montserratRegularFont(with: .body, pointSize: 12)
         oneLabel.textColor = .darkBlue
         
-        twoLabel.font = Appearance.montserratRegularFont(with: .body, pointSize: 10)
+        twoLabel.font = Appearance.montserratRegularFont(with: .body, pointSize: 12)
         twoLabel.textColor = .darkBlue
         
-        threeLabel.font = Appearance.montserratRegularFont(with: .body, pointSize: 10)
+        threeLabel.font = Appearance.montserratRegularFont(with: .body, pointSize: 12)
         threeLabel.textColor = .darkBlue
         
-        fourLabel.font = Appearance.montserratRegularFont(with: .body, pointSize: 10)
+        fourLabel.font = Appearance.montserratRegularFont(with: .body, pointSize: 12)
         fourLabel.textColor = .darkBlue
         
-        fiveLabel.font = Appearance.montserratRegularFont(with: .body, pointSize: 10)
+        fiveLabel.font = Appearance.montserratRegularFont(with: .body, pointSize: 12)
         fiveLabel.textColor = .darkBlue
         
         view.backgroundColor = .white

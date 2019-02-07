@@ -78,7 +78,7 @@ class SignInViewController: UIViewController {
         
         Appearance.style(button: login)
         
-        view.backgroundColor = .white
+        //view.backgroundColor = .white
 
     }
     
