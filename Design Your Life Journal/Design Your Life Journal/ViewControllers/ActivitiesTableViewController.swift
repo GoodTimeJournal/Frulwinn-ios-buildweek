@@ -6,6 +6,20 @@ class ActivitiesTableViewController: UITableViewController {
     
     //MARK: - Properties
     let journalController = JournalController()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setTheme()
+        journalController.fetchActivities { (error) in
+            if let error = error {
+                NSLog("Could not fetch activity data: \(error)")
+                return
+            }
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
         
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -22,7 +36,9 @@ class ActivitiesTableViewController: UITableViewController {
     }
     
     func setTheme() {
+        
         //textfield
+        tableView.separatorColor = .skyBlue
         view.backgroundColor = .white
     }
 
@@ -36,11 +52,16 @@ class ActivitiesTableViewController: UITableViewController {
 
         let activity = journalController.activities[indexPath.row]
         cell.activity = activity
+        style(cell: cell)
         return cell
     }
     
     func style(cell: UITableViewCell) {
-        //cell. style
+        cell.textLabel?.font = Appearance.montserratRegularFont(with: .caption1, pointSize: 24)
+        cell.textLabel?.adjustsFontForContentSizeCategory = true
+        cell.textLabel?.textColor = .skyBlue
+        cell.textLabel?.backgroundColor = .clear
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none
     }
 
 

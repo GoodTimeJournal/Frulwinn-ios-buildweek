@@ -7,14 +7,12 @@ class AboutViewController: UIViewController {
     //MARK: - Outlets
     @IBOutlet weak var aboutLabel: UILabel!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setTheme()
     }
-    
+
     func setTheme() {
-        //textfield
-        view.backgroundColor = .white
+        aboutLabel.textColor = .white
     }
 }

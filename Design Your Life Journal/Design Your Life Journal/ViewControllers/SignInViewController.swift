@@ -5,7 +5,7 @@ import UIKit
 class SignInViewController: UIViewController {
     
     //MARK: - Outlets
-    @IBOutlet weak var createNewAccountButton: UIButton!
+    @IBOutlet weak var login: UIButton!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBAction func login(_ sender: Any) {
@@ -43,8 +43,10 @@ class SignInViewController: UIViewController {
             do {
                 let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
                 if let parseJSON = json {
-                    let accessToken = parseJSON["token"] as? String
-                    let id = parseJSON["id"] as? String
+//                    let accessToken = parseJSON["token"] as? String
+//                    let id = parseJSON["id"] as? String
+                    _ = parseJSON["token"] as? String
+                    _ = parseJSON["id"] as? String
                 }
             } catch {
                 print(error)
@@ -58,6 +60,7 @@ class SignInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "login"
         setTheme()
         usernameTextField.text = ""
         passwordTextField.text = ""
@@ -65,15 +68,24 @@ class SignInViewController: UIViewController {
     
     func setTheme() {
         //textfield
-        view.backgroundColor = .white
+        usernameTextField.backgroundColor = UIColor.lightGray.withAlphaComponent(0.25)
+        usernameTextField.layer.cornerRadius = 4
+        usernameTextField.font = Appearance.montserratRegularFont(with: .body, pointSize: 15)
+        passwordTextField.backgroundColor = UIColor.lightGray.withAlphaComponent(0.25)
+        passwordTextField.textColor = .darkBlue
+        passwordTextField.layer.cornerRadius = 4
+        passwordTextField.font = Appearance.montserratRegularFont(with: .body, pointSize: 15)
+        
+        Appearance.style(button: login)
+        
+        //view.backgroundColor = .white
 
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let destination = segue.destination as? AboutViewController else { return }
-        
+      //  guard let destination = segue.destination as? AboutViewController else { return }
+        guard segue.destination is AboutViewController else { return }
+
     }
-    
-    
 }
 

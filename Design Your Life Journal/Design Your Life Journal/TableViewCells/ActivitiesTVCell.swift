@@ -17,12 +17,8 @@ class ActivitiesTVCell: UITableViewCell {
         engagementNumberLabel.text = String(activity.engagement)
         enjoymentNumberLabel.text = String(activity.enjoymentRating)
         energyNumberLabel.text = String(activity.energyLevel)
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "M/d/yy, h:mm a"
-        
-        let timestampFormatted = dateFormatter.string(from: activity.timestamp)
-        timestampLabel.text = timestampFormatted
+        timestampLabel.text = activity.timestamp
+    
     }
     
     //MARK: - Outlets

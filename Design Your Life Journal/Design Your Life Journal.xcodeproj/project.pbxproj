@@ -74,11 +74,19 @@
 			path = TableViewCells;
 			sourceTree = "<group>";
 		};
+		4815910D220B966D008067E1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		481FAC3F220520B9004C7337 = {
 			isa = PBXGroup;
 			children = (
 				481FAC4A220520B9004C7337 /* Design Your Life Journal */,
 				481FAC49220520B9004C7337 /* Products */,
+				4815910D220B966D008067E1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -173,6 +181,11 @@
 				TargetAttributes = {
 					481FAC47220520B9004C7337 = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -375,6 +388,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Design Your Life Journal/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -392,6 +406,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Design Your Life Journal/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

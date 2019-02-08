@@ -9,5 +9,5 @@ extension UIColor {
     static let lightGray = UIColor(233, 233, 233, 1)
     static let gray = UIColor(199, 199, 199, 1)
     static let skyBlue = UIColor(4, 108, 201, 1)
-    
+    static let darkBlue = UIColor(43, 48, 58, 1)
 }

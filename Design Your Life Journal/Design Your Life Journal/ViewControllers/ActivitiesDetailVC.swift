@@ -79,7 +79,7 @@ class ActivitiesDetailVC: UIViewController {
     func updateViews() {
         if isViewLoaded {
             guard let activity = activity else {
-                title = "create activity log"
+                title = "create activity"
                 return
             }
             title = activity.name
@@ -92,6 +92,55 @@ class ActivitiesDetailVC: UIViewController {
     
     func setTheme() {
         //textfield
+        engagementView.backgroundColor = UIColor.skyBlue
+        engagementLabel.textColor = .white
+        engagementTextField.layer.cornerRadius = 5
+        engagementTextField.backgroundColor = UIColor.white.withAlphaComponent(0.25)
+        engagementTextField.borderStyle = .none
+        engagementTextField.textColor = .white
+        engagementTextField.font = Appearance.montserratRegularFont(with: .body, pointSize: 15)
+        
+        enjoymentView.backgroundColor = UIColor.skyBlue
+        enjoymentLabel.textColor = .white
+        enjoymentTextField.layer.cornerRadius = 5
+        enjoymentTextField.backgroundColor = UIColor.white.withAlphaComponent(0.25)
+        enjoymentTextField.borderStyle = .none
+        enjoymentTextField.textColor = .white
+        enjoymentTextField.font = Appearance.montserratRegularFont(with: .body, pointSize: 15)
+        
+        energyView.backgroundColor = UIColor.skyBlue
+        energyLabel.textColor = .white
+        energyTextField.layer.cornerRadius = 5
+        energyTextField.backgroundColor = UIColor.white.withAlphaComponent(0.25)
+        energyTextField.borderStyle = .none
+        energyTextField.textColor = .white
+        energyTextField.font = Appearance.montserratRegularFont(with: .body, pointSize: 15)
+        
+        activityTextField.backgroundColor = UIColor.lightGray.withAlphaComponent(0.25)
+        activityTextField.textColor = .skyBlue
+        activityTextField.layer.cornerRadius = 5
+        activityTextField.borderStyle = .none
+        activityTextField.font = Appearance.montserratRegularFont(with: .body, pointSize: 15)
+        
+        ratingView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.25)
+        ratingLabel.textColor = .skyBlue
+        ratingLabel.font = Appearance.montserratRegularFont(with: .body, pointSize: 12)
+        
+        oneLabel.font = Appearance.montserratRegularFont(with: .body, pointSize: 12)
+        oneLabel.textColor = .darkBlue
+        
+        twoLabel.font = Appearance.montserratRegularFont(with: .body, pointSize: 12)
+        twoLabel.textColor = .darkBlue
+        
+        threeLabel.font = Appearance.montserratRegularFont(with: .body, pointSize: 12)
+        threeLabel.textColor = .darkBlue
+        
+        fourLabel.font = Appearance.montserratRegularFont(with: .body, pointSize: 12)
+        fourLabel.textColor = .darkBlue
+        
+        fiveLabel.font = Appearance.montserratRegularFont(with: .body, pointSize: 12)
+        fiveLabel.textColor = .darkBlue
+        
         view.backgroundColor = .white
     }
 }
