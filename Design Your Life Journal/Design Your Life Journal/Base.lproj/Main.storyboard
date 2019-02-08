@@ -444,9 +444,8 @@
                                                         <color key="backgroundColor" red="1" green="0.97507562830000005" blue="0.89923409840000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstItem="Usy-2q-oU4" firstAttribute="centerY" secondItem="htW-Kt-kD2" secondAttribute="centerY" id="3Ff-Wo-Nha"/>
-                                                            <constraint firstAttribute="width" constant="130" id="G88-T3-x8i"/>
                                                             <constraint firstItem="Usy-2q-oU4" firstAttribute="centerX" secondItem="htW-Kt-kD2" secondAttribute="centerX" id="Yzg-bV-wFE"/>
-                                                            <constraint firstAttribute="height" constant="130" id="zl9-1g-29M"/>
+                                                            <constraint firstAttribute="width" secondItem="htW-Kt-kD2" secondAttribute="height" multiplier="1:1" id="oAy-5s-aNw"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
@@ -458,11 +457,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="130" height="130"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kyT-6j-hyg">
-                                                                <rect key="frame" x="45" y="70.5" width="40" height="40"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="40" id="Dgj-T9-JQb"/>
-                                                                    <constraint firstAttribute="width" constant="40" id="wPK-uy-Mbv"/>
-                                                                </constraints>
+                                                                <rect key="frame" x="50.5" y="70.5" width="29" height="30"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -477,12 +472,11 @@
                                                         <color key="backgroundColor" red="0.72647220889999997" green="0.86337556390000003" blue="0.89430861399999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstItem="kyT-6j-hyg" firstAttribute="top" secondItem="pTg-aI-dzn" secondAttribute="bottom" constant="10" id="9F2-dd-VUU"/>
+                                                            <constraint firstAttribute="width" secondItem="oHo-Jn-ap8" secondAttribute="height" multiplier="1:1" id="AcL-kc-fCX"/>
                                                             <constraint firstItem="kyT-6j-hyg" firstAttribute="centerX" secondItem="oHo-Jn-ap8" secondAttribute="centerX" id="ElM-20-SGg"/>
                                                             <constraint firstAttribute="trailing" secondItem="pTg-aI-dzn" secondAttribute="trailing" constant="10" id="K1e-a3-39e"/>
-                                                            <constraint firstAttribute="height" constant="130" id="MPT-MM-S9b"/>
                                                             <constraint firstItem="pTg-aI-dzn" firstAttribute="top" secondItem="oHo-Jn-ap8" secondAttribute="top" constant="40" id="T6a-9n-Sqa"/>
                                                             <constraint firstItem="pTg-aI-dzn" firstAttribute="leading" secondItem="oHo-Jn-ap8" secondAttribute="leading" constant="10" id="X8v-V1-DBT"/>
-                                                            <constraint firstAttribute="width" constant="130" id="f1S-7N-JOC"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
@@ -499,11 +493,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="130" height="130"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PnR-ff-sQr">
-                                                                <rect key="frame" x="45" y="70.5" width="40" height="40"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="40" id="Klp-bw-Npr"/>
-                                                                    <constraint firstAttribute="width" constant="40" id="z0Z-VJ-JXX"/>
-                                                                </constraints>
+                                                                <rect key="frame" x="50.5" y="70.5" width="29" height="30"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -518,11 +508,10 @@
                                                         <color key="backgroundColor" red="0.72647220889999997" green="0.86337556390000003" blue="0.89430861399999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstItem="PnR-ff-sQr" firstAttribute="centerX" secondItem="6T8-YP-Wjx" secondAttribute="centerX" id="2j3-sV-vgH"/>
+                                                            <constraint firstAttribute="width" secondItem="6T8-YP-Wjx" secondAttribute="height" multiplier="1:1" id="H10-gB-et6"/>
                                                             <constraint firstAttribute="trailing" secondItem="DYd-Y8-rZA" secondAttribute="trailing" constant="10" id="J3C-zR-RzB"/>
-                                                            <constraint firstAttribute="width" constant="130" id="OZa-TW-stc"/>
                                                             <constraint firstItem="DYd-Y8-rZA" firstAttribute="leading" secondItem="6T8-YP-Wjx" secondAttribute="leading" constant="10" id="UgC-xc-t2o"/>
                                                             <constraint firstItem="PnR-ff-sQr" firstAttribute="top" secondItem="DYd-Y8-rZA" secondAttribute="bottom" constant="10" id="qTA-1A-U9F"/>
-                                                            <constraint firstAttribute="height" constant="130" id="tsQ-4f-3wy"/>
                                                             <constraint firstItem="DYd-Y8-rZA" firstAttribute="top" secondItem="6T8-YP-Wjx" secondAttribute="top" constant="40" id="zGb-qW-pxt"/>
                                                         </constraints>
                                                     </view>
@@ -535,11 +524,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="130" height="130"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Aa6-Jb-0UQ">
-                                                                <rect key="frame" x="45" y="70.5" width="40" height="40"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="40" id="CP6-Nn-g1u"/>
-                                                                    <constraint firstAttribute="width" constant="40" id="llD-HI-Nij"/>
-                                                                </constraints>
+                                                                <rect key="frame" x="50.5" y="70.5" width="29" height="30"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -555,11 +540,10 @@
                                                         <constraints>
                                                             <constraint firstItem="ejD-tH-aG6" firstAttribute="leading" secondItem="BVr-v1-IRG" secondAttribute="leading" constant="10" id="3aT-Vg-XJp"/>
                                                             <constraint firstAttribute="trailing" secondItem="ejD-tH-aG6" secondAttribute="trailing" constant="10" id="HIl-XF-bv3"/>
-                                                            <constraint firstAttribute="height" constant="130" id="JQt-dn-7V6"/>
                                                             <constraint firstItem="ejD-tH-aG6" firstAttribute="top" secondItem="BVr-v1-IRG" secondAttribute="top" constant="40" id="LOs-tc-7XB"/>
                                                             <constraint firstItem="Aa6-Jb-0UQ" firstAttribute="top" secondItem="ejD-tH-aG6" secondAttribute="bottom" constant="10" id="Mrx-xW-VI8"/>
+                                                            <constraint firstAttribute="width" secondItem="BVr-v1-IRG" secondAttribute="height" multiplier="1:1" id="SGv-1y-Lhg"/>
                                                             <constraint firstItem="Aa6-Jb-0UQ" firstAttribute="centerX" secondItem="BVr-v1-IRG" secondAttribute="centerX" id="i8w-0I-s41"/>
-                                                            <constraint firstAttribute="width" constant="130" id="vGk-Vb-TEP"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
@@ -619,8 +603,8 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="598"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7kY-Ld-lzy">
-                                <rect key="frame" x="50" y="214" width="275" height="239"/>
-                                <string key="text">Create an activity log that records your daily main activities. Give it a rating. At the end of the week create a reflection log to record what activities worked and didn't work for you. </string>
+                                <rect key="frame" x="50" y="199" width="275" height="269"/>
+                                <string key="text">Create an activity log that records your daily main activities. Give it a rating. At the end of the week create a reflection log to record your insights, what surprised you, and any trends you are noticing.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -632,7 +616,6 @@
                             <constraint firstItem="7kY-Ld-lzy" firstAttribute="centerY" secondItem="zSN-ek-Rpn" secondAttribute="centerY" id="AAa-F3-kur"/>
                             <constraint firstItem="tgR-W3-wVl" firstAttribute="top" secondItem="LcK-A5-wm7" secondAttribute="top" id="OL5-GM-YAo"/>
                             <constraint firstItem="7kY-Ld-lzy" firstAttribute="centerX" secondItem="zSN-ek-Rpn" secondAttribute="centerX" id="ajZ-K7-WSo"/>
-                            <constraint firstItem="7kY-Ld-lzy" firstAttribute="leading" secondItem="LcK-A5-wm7" secondAttribute="leading" constant="50" id="jmf-ue-Ql4"/>
                             <constraint firstItem="LcK-A5-wm7" firstAttribute="trailing" secondItem="tgR-W3-wVl" secondAttribute="trailing" id="l3L-l6-fck"/>
                             <constraint firstItem="LcK-A5-wm7" firstAttribute="bottom" secondItem="tgR-W3-wVl" secondAttribute="bottom" id="s5w-Gl-Opg"/>
                             <constraint firstAttribute="trailing" secondItem="7kY-Ld-lzy" secondAttribute="trailing" constant="50" id="xse-wf-Urz"/>
@@ -893,7 +876,7 @@
         <image name="woodDesk" width="3523" height="2349"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="PW4-Gv-6u8"/>
+        <segue reference="41o-yj-UJ4"/>
         <segue reference="f9x-WH-egR"/>
         <segue reference="XHg-Jn-Mqz"/>
     </inferredMetricsTieBreakers>

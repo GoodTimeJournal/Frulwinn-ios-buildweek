@@ -42,5 +42,7 @@ Back End Architect 3 - Travis Russell
 Scrum Master - Eva Li
 
 
-Requirements
-MVP feature 
+Application:
+This app allows the user to log their daily activities and give it a rating from 1-5.
+At the end of the week they can create a reflection log to put some perspective on activities they enjoy.
+
